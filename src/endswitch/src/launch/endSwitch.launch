@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="endswitch" type="endSwitchDataCol.py" name="endswitch_observer" cwd="node"/>
+    <node pkg="endswitch" type="endSwitchObserverSub.py" name="endswitch_observer_sub" cwd="node"/>
+</launch>
