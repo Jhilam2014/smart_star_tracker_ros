@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from luma.core.interface.serial import i2c, spi, pcf8574
 from luma.core.interface.parallel import bitbang_6800
