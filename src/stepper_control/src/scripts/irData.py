@@ -14,6 +14,18 @@ ir_pin = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_pin, GPIO.IN)
 
+keyBoardMap = {
+    '12901614333' : "=",
+    '12901663293' : ">>",
+    '12901622493' : "<<",
+    '12901640343' : '1',
+    '12901652583' : '2',
+    '12901658703' : '3',
+    '12901626063' : '4',
+    '12901619943' : '5',
+    '12901644933' : '6'
+}
+
 
 class CircuitControl:
 
@@ -65,13 +77,14 @@ class CircuitControl:
             
             return timeseries # Returns the raw information about the high and low pulses (HIGH/LOW, time us)
 
+pub = rospy.Publisher('irInfoPubNode', String, queue_size=1000) 
 
 def listener():
     initObj = CircuitControl()
     while not rospy.is_shutdown():
         val = initObj.getIntegerCode(initObj.inputDataRead())
-        print(val)
-    
+        sign = keyBoardMap[val]
+        pub.publish(sign)
 
 
 if __name__ == '__main__':
