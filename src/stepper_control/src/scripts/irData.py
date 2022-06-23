@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import RPi.GPIO as GPIO
 import rospy
 from std_msgs.msg import String
@@ -10,7 +11,7 @@ import time
 
 #IR PIN = 17
 ir_pin = 17
-
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_pin, GPIO.IN)
 
 
@@ -62,7 +63,7 @@ class CircuitControl:
                 lastState = val
                 val = GPIO.input(ir_pin)
             
-            return timeseries # Returns the raw information about the high and low pulses (HIGH/LOW, time µs)
+            return timeseries # Returns the raw information about the high and low pulses (HIGH/LOW, time us)
 
 
 def listener():
@@ -70,6 +71,7 @@ def listener():
     while not rospy.is_shutdown():
         val = initObj.getIntegerCode(initObj.inputDataRead())
         print(val)
+    
 
 
 if __name__ == '__main__':
