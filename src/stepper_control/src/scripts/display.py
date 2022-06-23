@@ -12,7 +12,7 @@ import yaml
 serial = spi(device=0, port=0)
 device = sh1106(serial)
 
-def displayMsg(data):
+def displayMsgCbk(data):
     print(data.data)
     with canvas(device) as draw:
         line = 10
@@ -25,7 +25,7 @@ def displayMsg(data):
             line +=10     
 
 def listener():
-    rospy.Subscriber('disData',String, displayMsg)
+    rospy.Subscriber('disData',String, displayMsgCbk)
     rospy.spin()
 
 if __name__ == '__main__':
