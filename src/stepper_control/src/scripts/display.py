@@ -12,7 +12,12 @@ import yaml
 serial = spi(device=0, port=0)
 device = sh1106(serial)
 
-
+menu = '''
+{
+    'Menu': 'Ok',
+    '*' : 'Initial Position'
+}
+'''
 def displayMsgCbk(data):
     print(data.data)
     with canvas(device) as draw:
@@ -31,7 +36,7 @@ def listener():
 
 if __name__ == '__main__':
     rospy.init_node('display_board', anonymous=True)
-    displayMsgCbk()
+    displayMsgCbk(menu)
     try:
         listener()
     except rospy.ROSInterruptException:
