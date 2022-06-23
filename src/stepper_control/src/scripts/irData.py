@@ -83,8 +83,13 @@ def listener():
     initObj = CircuitControl()
     while not rospy.is_shutdown():
         val = initObj.getIntegerCode(initObj.inputDataRead())
-        sign = keyBoardMap[val]
-        pub.publish(sign)
+        try:
+            sign = keyBoardMap[str(val)]
+            rospy.loginfo(sign)
+            pub.publish(sign)
+        except:
+            pass
+        
 
 
 if __name__ == '__main__':

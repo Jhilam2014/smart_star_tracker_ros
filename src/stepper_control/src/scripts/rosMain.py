@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 
 import rospy
@@ -43,8 +43,9 @@ class CircuitControl:
 
 
 initObj = CircuitControl()
+def motorControlCbk(data):
+    rospy.loginfo(data)
 
-def 
 def listener():
     
     rospy.Subscriber('irInfoPubNode',String, motorControlCbk)
