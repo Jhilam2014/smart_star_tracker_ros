@@ -1,0 +1,16 @@
+{
+    "Menu": [
+        {
+            "Title": "Menu",
+            "1": "Align",
+            "2": "Speed"
+        }
+    ],
+    "Speed": [
+        {
+            "Title": "Speed",
+            "1": "Duration",
+            "2": "Speed Value"
+        }
+    ]
+}

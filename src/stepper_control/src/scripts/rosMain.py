@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 
+import json
 import rospy
 from std_msgs.msg import String
 import RPi.GPIO as GPIO
@@ -19,6 +20,18 @@ ir_pin = 17
 direction= 22 # Direction (DIR) GPIO Pin
 step = 23 # Step GPIO Pin
 EN_pin = 12 # enable pin (LOW to enable)
+
+MAIN_MENU = '''{
+    "1" : "Auto Align",
+    "2" : "Speed Control"
+}
+''' 
+
+class Menu:
+
+    def __init__(self):
+        self.currentPage = 'Menu'
+        self.breadcrm = []
 
 
 class CircuitControl:
@@ -43,14 +56,32 @@ class CircuitControl:
 
 pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
-
-def motorControlCbk(data):
+initMenu = Menu()
+pub.publish(MAIN_MENU)
+loadPages = json.loads('pages.json')
+def menuBoardCbk(data):
     rospy.loginfo(data)
-    pub.publish('"Msg" : '+data.data)
+    # pub.publish('"Selected" : '+menu[data.data])
+    # initMenu.previousPage = initMenu.currentPage
+    # initMenu.currentPage = menu[data.data]
+    if (data.data == "<<"):
+        if initMenu.breadcrm:
+            initMenu.currentPage = initMenu.breadcrm[-2]
+            initMenu.breadcrm.append(initMenu.currentPage)
+            pub.publish(loadPages[initMenu.currentPage])
+    else:
+        allInfoInPageKeys = loadPages[initMenu.currentPage].keys()
+        if(data.data in allInfoInPageKeys):
+            print(data.data+" in "+initMenu.currentPage)
+
+    
+            
+    
+
 
 
 def listener():
-    rospy.Subscriber('irInfoPubNode',String, motorControlCbk)
+    rospy.Subscriber('irInfoPubNode',String, menuBoardCbk)
     rospy.spin()
 
 
