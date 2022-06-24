@@ -1,21 +1,24 @@
 {
     "Menu": [
         {
-            "Title": "Menu",
-            "1": "Align",
-            "2": "Speed"
+            "Page": "Menu",
+            "1": "Alignment",
+            "2": "Speed Control"
         }
     ],
-    "Speed": [
+    "Speed Control": [
         {
-            "Title": "Speed",
-            "1": "Duration",
-            "2": "Speed Value"
+            "Page": "Speed",
+            "Info1": "Duration",
+            "1": null,
+            "Info2": "Speed Value",
+            "2": null,
+            "Ok": "Run"
         }
     ],
-    "Align": [
+    "Alignment": [
         {
-            "Title": "Alignment",
+            "Page": "Alignment",
             "1": "Start",
             "0": "Stop"
         }
