@@ -10,11 +10,12 @@ import time
 import sys
 from time import sleep
 from datetime import datetime
-
+import yaml
 
 def stepperCbk(event):
     
-    eventType = event.data['type'] 
+    eventData = yaml.safe_load(str(event.data))
+    eventType = eventData['type'] 
 
     rospy.loginfo(str(eventType))
 
