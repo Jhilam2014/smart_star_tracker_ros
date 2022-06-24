@@ -1,4 +1,5 @@
 <launch>
-    <node pkg="endswitch" type="endSwitchDataCol.py" name="endswitch_observer" cwd="node"/>
-    <node pkg="endswitch" type="endSwitchObserverSub.py" name="endswitch_observer_sub" cwd="node"/>
+    <node pkg="stepper_control" type="display.py" name="display_board" cwd="node"/>
+    <node pkg="stepper_control" type="irData.py" name="IR_sensor_Data" cwd="node"/>
+    <node pkg="stepper_control" type="rosMain.py" name="stepper_motor_controller" cwd="node"/>
 </launch>
