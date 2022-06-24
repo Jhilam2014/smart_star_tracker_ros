@@ -64,9 +64,6 @@ loadPages = json.loads(jsonString)
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
-    # pub.publish('"Selected" : '+menu[data.data])
-    # initMenu.previousPage = initMenu.currentPage
-    # initMenu.currentPage = menu[data.data]
     if (data.data == "<<"):
         if initMenu.breadcrm:
             initMenu.currentPage = initMenu.breadcrm[-2]
@@ -76,9 +73,9 @@ def menuBoardCbk(data):
         allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys()
         if(data.data in allInfoInPageKeys):
             print(data.data+" in "+initMenu.currentPage)
+            pub.publish(loadPages[initMenu.currentPage][0])
+            initMenu.breadcrm.append(initMenu.currentPage)
 
-    
-            
     
 
 
