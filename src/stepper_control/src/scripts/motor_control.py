@@ -46,7 +46,7 @@ def stepperCbk(event):
     if(eventType == 'Speed Control'):
         steps = int(eventData['Speed Control'][0]["1"])*500
         direc = bool(int(eventData['Speed Control'][0]["2"]))
-        tm = float(eventData['Speed Control'][0]["3"])
+        tm = 1/float(eventData['Speed Control'][0]["3"])
         initMotor.motorCode(direc,steps,tm)
 
     
