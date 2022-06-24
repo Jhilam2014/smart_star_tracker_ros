@@ -2,6 +2,8 @@
 
 
 import json
+
+from matplotlib.font_manager import json_load
 import rospy
 from std_msgs.msg import String
 import RPi.GPIO as GPIO
@@ -58,7 +60,9 @@ pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
 initMenu = Menu()
 f = open('pages.json','r+')
-loadPages = json.loads(f)
+jsonData = json.load(f)
+jsonString=json.dumps(jsonData)
+loadPages = json.loads(jsonString)
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
