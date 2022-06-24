@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_pin, GPIO.IN)
 
 keyBoardMap = {
-    '12901614333' : "Ok",
+    '12901614333' : "Menu",
     '12901663293' : ">>",
     '12901622493' : "<<",
     '12901640343' : '1',
@@ -89,22 +89,22 @@ def listener():
     initObj = CircuitControl()
     while not rospy.is_shutdown():
         val = initObj.getIntegerCode(initObj.inputDataRead())
-        # try:
-        #     sign = keyBoardMap[str(val)]
-        #     rospy.loginfo(sign)
-        #     pub.publish(sign)
-        # except:
-        #     pass
-
-        '''
-        display IR data
-        '''
         try:
-            sign =str(val)
+            sign = keyBoardMap[str(val)]
             rospy.loginfo(sign)
             pub.publish(sign)
         except:
             pass
+
+        '''
+        display IR RAW data
+        '''
+        # try:
+        #     sign =str(val)
+        #     rospy.loginfo(sign)
+        #     pub.publish(sign)
+        # except:
+        #     pass
         
 
 
