@@ -71,9 +71,9 @@ def menuBoardCbk(data):
         if initMenu.breadcrm:
             initMenu.currentPage = initMenu.breadcrm[-2]
             initMenu.breadcrm.append(initMenu.currentPage)
-            pub.publish(loadPages[initMenu.currentPage])
+            pub.publish(loadPages[initMenu.currentPage][0])
     else:
-        allInfoInPageKeys = loadPages[initMenu.currentPage].keys()
+        allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys()
         if(data.data in allInfoInPageKeys):
             print(data.data+" in "+initMenu.currentPage)
 
