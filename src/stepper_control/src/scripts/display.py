@@ -28,7 +28,7 @@ def displayMsgCbk(data):
       
         for each in displayData:
             draw.text((5, line), str(each)+':'+str(displayData[each]), fill="white")
-            line +=5     
+            line +=10     
 
 def listener():
     rospy.Subscriber('disData',String, displayMsgCbk)
