@@ -12,5 +12,12 @@
             "1": "Duration",
             "2": "Speed Value"
         }
+    ],
+    "Align": [
+        {
+            "Title": "Alignment",
+            "1": "Start",
+            "0": "Stop"
+        }
     ]
 }
