@@ -57,7 +57,8 @@ class CircuitControl:
 pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
 initMenu = Menu()
-loadPages = json.load('pages.json')
+f = open('pages.json','r+')
+loadPages = json.loads(f)
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
