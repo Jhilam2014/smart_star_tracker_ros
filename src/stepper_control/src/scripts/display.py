@@ -36,7 +36,7 @@ def listener():
 
 if __name__ == '__main__':
     rospy.init_node('display_board', anonymous=True)
-    displayMsgCbk(menu)
+    # displayMsgCbk(menu)
     try:
         listener()
     except rospy.ROSInterruptException:

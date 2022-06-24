@@ -41,10 +41,11 @@ class CircuitControl:
                         False, # True = print verbose output 
                         .0) # initial delay [sec]
 
-
+pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
 def motorControlCbk(data):
     rospy.loginfo(data)
+    pub.publish('"Msg" : Hello')
 
 def listener():
     
