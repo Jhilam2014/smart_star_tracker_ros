@@ -11,13 +11,14 @@
             "Pg": "Speed-1)Tm 2)Spd",
             "1": 0,
             "2": 0,
-            "Ok": "Run"
+            "3": "Run",
+            "4": "Stop"
         }
     ],
     "Alignment": [
         {
             "Page": "Alignment",
-            "1": "Start",
+            "1": "Run",
             "0": "Stop"
         }
     ]
