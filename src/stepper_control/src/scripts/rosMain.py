@@ -86,7 +86,7 @@ def menuBoardCbk(data):
                     pub.publish(str(loadPages[query][0]))
                     initMenu.breadcrm.append(initMenu.currentPage)
                 else: #set value
-                    loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = +10
+                    loadPages[initMenu.breadcrm[-1]][0][str(data.data)] += 10
                     pub.publish(str(loadPages[initMenu.currentPage][0]))
 
     
