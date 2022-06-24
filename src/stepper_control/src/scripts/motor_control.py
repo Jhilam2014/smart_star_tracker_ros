@@ -13,7 +13,10 @@ from datetime import datetime
 
 
 def stepperCbk(event):
-    rospy.loginfo(str(event))
+    
+    eventData = json.loads(event.data)
+    eventType = eventData['type']
+    rospy.loginfo(str(eventType))
 
 def listener():
     rospy.Subscriber('stepper_motor_controller_info',String, stepperCbk)
