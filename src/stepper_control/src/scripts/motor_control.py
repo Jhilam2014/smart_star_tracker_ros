@@ -18,7 +18,7 @@ import yaml
 direction= 22 # Direction (DIR) GPIO Pin
 step = 23 # Step GPIO Pin
 EN_pin = 12 # enable pin (LOW to enable)
-
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(EN_pin,GPIO.OUT)
 
 class CircuitControl:
