@@ -2,8 +2,6 @@
 
 
 import json
-
-from matplotlib.font_manager import json_load
 import rospy
 from std_msgs.msg import String
 import RPi.GPIO as GPIO
