@@ -46,7 +46,7 @@ initObj = CircuitControl()
 
 def motorControlCbk(data):
     rospy.loginfo(data)
-    pub.publish('"Msg" : Hello')
+    pub.publish('"Msg" : '+str(data))
 
 
 def listener():
