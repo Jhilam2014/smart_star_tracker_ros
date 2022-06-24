@@ -2,5 +2,5 @@
     <node pkg="stepper_control" type="display.py" name="display_board" cwd="node"/>
     <node pkg="stepper_control" type="irData.py" name="IR_sensor_Data" cwd="node"/>
     <node pkg="stepper_control" type="keyboard_info.py" name="keyboard_info_parse" cwd="node"/>
-    <node pkg="stepper_control" type="motor_control.py" name="stepper_motor_controller" cwd="node"/>
+    <!-- <node pkg="stepper_control" type="motor_control.py" name="stepper_motor_controller" cwd="node"/> -->
 </launch>
