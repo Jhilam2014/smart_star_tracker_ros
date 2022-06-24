@@ -21,14 +21,14 @@ menu = '''
 def displayMsgCbk(data):
     print(data.data)
     with canvas(device) as draw:
-        line = 10
+        line = 5
         draw.rectangle(device.bounding_box, outline="white", fill="black")
         rawMsg = data.data
         displayData = yaml.safe_load(str(rawMsg))
       
         for each in displayData:
-            draw.text((20, line), str(each)+':'+str(displayData[each]), fill="white")
-            line +=10     
+            draw.text((5, line), str(each)+':'+str(displayData[each]), fill="white")
+            line +=5     
 
 def listener():
     rospy.Subscriber('disData',String, displayMsgCbk)
