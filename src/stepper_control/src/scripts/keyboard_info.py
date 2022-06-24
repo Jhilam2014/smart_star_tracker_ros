@@ -73,7 +73,7 @@ def menuBoardCbk(data):
                     elif(str(data.data) == "2"):
                         loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = 1 - loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                     elif(str(data.data) == "3"):
-                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = float(loadPages[initMenu.breadcrm[-1]][0][str(data.data)])/10
+                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = 0.1*loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                     pub.publish(str(loadPages[initMenu.currentPage][0]))
 
     
