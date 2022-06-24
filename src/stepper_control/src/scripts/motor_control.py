@@ -12,11 +12,39 @@ from time import sleep
 from datetime import datetime
 import yaml
 
+
+
+#stepper motor pins
+direction= 22 # Direction (DIR) GPIO Pin
+step = 23 # Step GPIO Pin
+EN_pin = 12 # enable pin (LOW to enable)
+
+GPIO.setup(EN_pin,GPIO.OUT)
+
+class CircuitControl:
+ 
+
+    def motorCode(self,dirc,spd):
+        
+        mymotortest = RpiMotorLib.A4988Nema(direction, step,(-1,-1,-1), "A4988")
+        GPIO.output(EN_pin,GPIO.LOW) 
+
+        mymotortest.motor_go(dirc, # True=Clockwise, False=Counter-Clockwise
+                        "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
+                        int(spd), # number of steps
+                        .0001, # step delay [sec]
+                        False, # True = print verbose output 
+                        .0) # initial delay [sec]
+
+initMotor = CircuitControl()
+
 def stepperCbk(event):
     
     eventData = yaml.safe_load(str(event.data))
     eventType = eventData['type'] 
-
+    if(eventType == 'Speed Control'):
+        steps = int(eventData['Speed Control'][0]["1"])*500
+        initMotor.motorCode(True,steps)
     rospy.loginfo(str(eventType))
 
 def listener():
