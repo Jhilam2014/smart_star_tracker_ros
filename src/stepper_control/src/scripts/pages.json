@@ -8,10 +8,8 @@
     ],
     "Speed Control": [
         {
-            "Page": "Speed",
-            "Info1": "Duration",
+            "Page": "Speed - 1)Tm 2)Spd",
             "1": null,
-            "Info2": "Speed Value",
             "2": null,
             "Ok": "Run"
         }
