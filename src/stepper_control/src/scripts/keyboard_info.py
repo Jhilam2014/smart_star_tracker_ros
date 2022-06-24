@@ -83,7 +83,6 @@ def listener():
 if __name__ == '__main__':
     rospy.init_node('keyboard_info_parse', anonymous=True)
     try:
-        pub.publish(MAIN_MENU)
         listener()
     except rospy.ROSInterruptException:
         pass

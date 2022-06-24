@@ -8,7 +8,7 @@
     ],
     "Speed Control": [
         {
-            "Pg": "Speed-1)Tm 2)Spd",
+            "Pg": "Speed-1)Spd 2)Tm",
             "1": 0,
             "2": 0,
             "3": "Run",

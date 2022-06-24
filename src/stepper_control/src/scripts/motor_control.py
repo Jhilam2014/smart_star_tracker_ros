@@ -10,3 +10,19 @@ import time
 import sys
 from time import sleep
 from datetime import datetime
+
+
+def stepperCbk(event):
+    rospy.loginfo(json.loads(event))
+
+def listener():
+    rospy.Subscriber('stepper_motor_controller_info',String, stepperCbk)
+    rospy.spin()
+
+
+if __name__ == '__main__':
+    rospy.init_node('stepper_motor_controller', anonymous=True)
+    try:
+        listener()
+    except rospy.ROSInterruptException:
+        pass
