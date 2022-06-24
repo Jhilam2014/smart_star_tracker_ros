@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 
 import rospy
@@ -43,12 +43,13 @@ class CircuitControl:
 
 pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
+
 def motorControlCbk(data):
     rospy.loginfo(data)
     pub.publish('"Msg" : Hello')
 
+
 def listener():
-    
     rospy.Subscriber('irInfoPubNode',String, motorControlCbk)
     rospy.spin()
 
