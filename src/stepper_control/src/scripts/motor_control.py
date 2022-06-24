@@ -14,8 +14,8 @@ from datetime import datetime
 
 def stepperCbk(event):
     
-    eventData = json.loads(event.data)
-    eventType = eventData['type']
+    eventType = event.data['type'] 
+
     rospy.loginfo(str(eventType))
 
 def listener():
