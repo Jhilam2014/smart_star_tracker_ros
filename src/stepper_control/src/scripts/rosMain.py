@@ -68,6 +68,8 @@ def menuBoardCbk(data):
     if initMenu.firstCheck:
         pub.publish(MAIN_MENU)
         initMenu.firstCheck = False
+        initMenu.currentPage = 'Menu'
+        initMenu.breadcrm.append(initMenu.currentPage)
     else:
         if (data.data == "<<"):
             if initMenu.breadcrm:
