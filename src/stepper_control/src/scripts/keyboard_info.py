@@ -68,7 +68,12 @@ def menuBoardCbk(data):
                     dt["type"] = initMenu.currentPage
                     pub_motor.publish(str(dt))
                 else: #set value
-                    loadPages[initMenu.breadcrm[-1]][0][str(data.data)] += 10
+                    if(str(data.data) == "1"):
+                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] += 10
+                    elif(str(data.data) == "2"):
+                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = 1 - loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
+                    elif(str(data.data) == "3"):
+                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = loadPages[initMenu.breadcrm[-1]][0][str(data.data)]/10
                     pub.publish(str(loadPages[initMenu.currentPage][0]))
 
     

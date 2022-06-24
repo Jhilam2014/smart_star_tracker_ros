@@ -8,11 +8,12 @@
     ],
     "Speed Control": [
         {
-            "Pg": "Speed-1)Spd 2)Tm",
+            "->": "1)S 2)D 3)T",
             "1": 0,
             "2": 0,
-            "3": "Run",
-            "4": "Stop"
+            "3": 1,
+            "4": "Run",
+            "5": "Stop"
         }
     ],
     "Alignment": [
