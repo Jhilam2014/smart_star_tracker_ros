@@ -32,6 +32,7 @@ class Menu:
     def __init__(self):
         self.currentPage = 'Menu'
         self.breadcrm = []
+        self.firstCheck = True
 
 
 class CircuitControl:
@@ -64,17 +65,21 @@ loadPages = json.loads(jsonString)
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
-    if (data.data == "<<"):
-        if initMenu.breadcrm:
-            initMenu.currentPage = initMenu.breadcrm[-2]
-            initMenu.breadcrm.append(initMenu.currentPage)
-            pub.publish(loadPages[initMenu.currentPage][0])
+    if initMenu.firstCheck:
+        pub.publish(MAIN_MENU)
+        initMenu.firstCheck = False
     else:
-        allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys()
-        if(data.data in allInfoInPageKeys):
-            print(data.data+" in "+initMenu.currentPage)
-            pub.publish(str(loadPages[initMenu.currentPage][0]))
-            initMenu.breadcrm.append(initMenu.currentPage)
+        if (data.data == "<<"):
+            if initMenu.breadcrm:
+                initMenu.currentPage = initMenu.breadcrm[-2]
+                initMenu.breadcrm.append(initMenu.currentPage)
+                pub.publish(str(loadPages[initMenu.currentPage][0]))
+        else:
+            allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys()
+            if(data.data in allInfoInPageKeys):
+                print(data.data+" in "+initMenu.currentPage)
+                pub.publish(str(loadPages[initMenu.currentPage][0]))
+                initMenu.breadcrm.append(initMenu.currentPage)
 
     
 
