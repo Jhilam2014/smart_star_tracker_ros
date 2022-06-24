@@ -59,7 +59,7 @@ def menuBoardCbk(data):
             allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys() #example 1,2
             if(data.data in allInfoInPageKeys):
                 query = loadPages[initMenu.breadcrm[-1]][0][str(data.data)] #the name of the object in the json => "1": (Speed)-?> query
-                if (query) and type(query) != int:
+                if (query) and type(query) != int and query != 'Run':
                     initMenu.currentPage = query
                     pub.publish(str(loadPages[query][0]))
                     initMenu.breadcrm.append(initMenu.currentPage)
