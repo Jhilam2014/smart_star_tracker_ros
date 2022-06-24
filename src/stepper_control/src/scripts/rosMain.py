@@ -57,8 +57,8 @@ class CircuitControl:
 pub = rospy.Publisher('disData', String, queue_size=1000)
 initObj = CircuitControl()
 initMenu = Menu()
-pub.publish(MAIN_MENU)
 loadPages = json.loads('pages.json')
+
 def menuBoardCbk(data):
     rospy.loginfo(data)
     # pub.publish('"Selected" : '+menu[data.data])
@@ -88,6 +88,7 @@ def listener():
 if __name__ == '__main__':
     rospy.init_node('stepper_motor_controller', anonymous=True)
     try:
+        pub.publish(MAIN_MENU)
         listener()
     except rospy.ROSInterruptException:
         pass
