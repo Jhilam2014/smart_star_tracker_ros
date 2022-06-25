@@ -79,7 +79,7 @@ def menuBoardCbk(data):
                 regex = r"(?!Run|\d).*$"
                 matches = re.match(regex, str(query), re.M)
 
-                if (matches.group()):
+                if (matches):
                     initMenu.currentPage = query
                     pub.publish(str(loadPages[query][0]))
                     initMenu.breadcrm.append(initMenu.currentPage)
