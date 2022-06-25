@@ -76,9 +76,9 @@ def menuBoardCbk(data):
         else:
             if(initMenu.currentPage == 'Edit'):
                 loadPages[initMenu.currentPage][0]['Enter Value'] += data.data
-            elif(str(data.data) == "Ok"):
-                initMenu.currentPage = loadPages[initMenu.breadcrm[-1]]
-                pub.publish(str(loadPages[initMenu.breadcrm[-1]]))
+                if(str(data.data) == "Ok"):
+                    initMenu.currentPage = loadPages[initMenu.breadcrm[-1]]
+                    pub.publish(str(loadPages[initMenu.breadcrm[-1]]))
             else:
                 allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys() #example 1,2
                 if(data.data in allInfoInPageKeys):
