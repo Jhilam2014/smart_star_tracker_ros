@@ -76,6 +76,7 @@ def menuBoardCbk(data):
         else:
             if(initMenu.currentPage == 'Edit'):
                 loadPages[initMenu.currentPage][0]['Enter Value'] += data.data
+                pub.publish(str(loadPages['Edit']))
                 if(str(data.data) == "Ok"):
                     initMenu.currentPage = loadPages[initMenu.breadcrm[-1]]
                     pub.publish(str(loadPages[initMenu.breadcrm[-1]]))
