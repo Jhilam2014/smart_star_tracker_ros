@@ -54,7 +54,10 @@ opMap = {
 def operations(val,type,amt):
     if(type=="2"):
         amt=1
-    val = opMap[type](float(val),amt)
+        val = int(val)
+    else:
+        val = float(val)
+    val = opMap[type](val,amt)
     return val
         
 
