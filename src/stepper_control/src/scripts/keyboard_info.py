@@ -76,7 +76,7 @@ def menuBoardCbk(data):
             if(data.data in allInfoInPageKeys):
                 query = loadPages[initMenu.breadcrm[-1]][0][str(data.data)] #the name of the object in the json => "1": (Speed)-?> query
                 
-                regex = r"(?!.*\b(?:Run|Stop|Subtract|\d)\b).*$"
+                regex = r"(?!.*\b(?:Run|Stop|Subtract|[\d]{0,})\b).*$"
                 matches = re.match(regex, str(query), re.M)
 
                 if (matches):
