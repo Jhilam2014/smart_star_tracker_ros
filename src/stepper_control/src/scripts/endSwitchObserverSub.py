@@ -10,7 +10,7 @@ import json
 pub = rospy.Publisher('killNode', String, queue_size=1000) 
 
 def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
+    # rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
     pub.publish("/stepper_motor_controller")
 
 def listener():

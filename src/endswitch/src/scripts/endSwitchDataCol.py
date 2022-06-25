@@ -16,7 +16,7 @@ def listener():
         val = os.popen("curl --connect-timeout 2.5 http://192.168.1.3/helloWorld").read()
         val = json.loads(val)
         res = val["name"]
-        rospy.loginfo(res)
+        # rospy.loginfo(res)
         if (res):
             pub.publish(res)
         
