@@ -91,6 +91,7 @@ def menuBoardCbk(data):
                     value = loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                     
                     if(str(data.data) == "#"):
+                        value = loadPages[initMenu.breadcrm[-1]][0][initMenu.lastOperation]
                         loadPages[initMenu.breadcrm[-1]][0][initMenu.lastOperation] = operations(value,str(data.data),10)
                     else:
                         loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = operations(value,str(data.data),10)
