@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 
+from ast import operator
 import json
 import rospy
 from std_msgs.msg import String
@@ -8,8 +9,8 @@ import time
 import sys
 from time import sleep
 from datetime import datetime
-
-
+import re
+import operator
 
 #IR PIN = 17
 ir_pin = 17
@@ -31,6 +32,7 @@ class Menu:
         self.currentPage = 'Menu'
         self.breadcrm = []
         self.firstCheck = True
+        self.lastOperation = "1"
 
 
 pub = rospy.Publisher('disData', String, queue_size=1000)
@@ -41,6 +43,20 @@ f = open('pages.json','r+')
 jsonData = json.load(f)
 jsonString=json.dumps(jsonData)
 loadPages = json.loads(jsonString)
+
+opMap = {
+    "1": operator.add,
+    "3": operator.mul,
+    "2": operator.xor,
+    "#": operator.sub
+}
+
+def operations(val,type,amt):
+    if(type=="2"):
+        amt=1
+    val = opMap[type](val,amt)
+    return val
+        
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
@@ -59,7 +75,11 @@ def menuBoardCbk(data):
             allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys() #example 1,2
             if(data.data in allInfoInPageKeys):
                 query = loadPages[initMenu.breadcrm[-1]][0][str(data.data)] #the name of the object in the json => "1": (Speed)-?> query
-                if (query) and type(query) != int and query != 'Run':
+                
+                regex = r"(?!Run|\d).*$"
+                matches = re.match(regex, query, re.M)
+
+                if (matches.group()):
                     initMenu.currentPage = query
                     pub.publish(str(loadPages[query][0]))
                     initMenu.breadcrm.append(initMenu.currentPage)
@@ -68,13 +88,15 @@ def menuBoardCbk(data):
                     dt["type"] = initMenu.currentPage
                     pub_motor.publish(str(dt))
                 else: #set value
-                    if(str(data.data) == "1"):
-                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] += 10
-                    elif(str(data.data) == "3"):
-                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] *= 10
-                    elif(str(data.data) == "2"):
-                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = 1 - loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
+                    value = loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                     
+                    if(str(data.data) == "#"):
+                        loadPages[initMenu.breadcrm[-1]][0][initMenu.lastOperation] = operations(value,str(data.data),10)
+                    else:
+                        loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = operations(value,str(data.data),10)
+                        initMenu.lastOperation = str(data.data)
+                   
+
                     pub.publish(str(loadPages[initMenu.currentPage][0]))
 
     
