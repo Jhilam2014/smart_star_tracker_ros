@@ -67,6 +67,7 @@ def menuBoardCbk(data):
         initMenu.firstCheck = False
         initMenu.currentPage = 'Menu'
         initMenu.breadcrm.append(initMenu.currentPage)
+        
     else:
         if (data.data == "<<"):
             if initMenu.breadcrm:
@@ -76,7 +77,7 @@ def menuBoardCbk(data):
         else:
             if(initMenu.currentPage == 'Edit'):
                 loadPages[initMenu.currentPage][0]['Enter Value'] += data.data
-                pub.publish(str(loadPages['Edit']))
+                pub.publish(str(loadPages['Edit'][0]))
                 if(str(data.data) == "Ok"):
                     initMenu.currentPage = loadPages[initMenu.breadcrm[-1]]
                     pub.publish(str(loadPages[initMenu.breadcrm[-1]]))
@@ -106,7 +107,7 @@ def menuBoardCbk(data):
                             initMenu.editFlag = not bool(initMenu.editFlag)
                             if(initMenu.editFlag == True):
                                 initMenu.currentPage = 'Edit'
-                                pub.publish(str(loadPages['Edit']))
+                                pub.publish(str(loadPages['Edit'][0]))
                         else:
                             loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = operations(value,str(data.data),10)
                             initMenu.lastOperation = str(data.data)
