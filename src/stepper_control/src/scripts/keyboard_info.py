@@ -76,11 +76,11 @@ def menuBoardCbk(data):
                 pub.publish(str(loadPages[initMenu.currentPage][0]))
         else:
             if(initMenu.currentPage == 'Edit'):
+                if(str(data.data) == "Ok"):
+                    initMenu.currentPage = initMenu.breadcrm[-1]
+                    pub.publish(str(loadPages[initMenu.breadcrm[-1]][0]))
                 loadPages[initMenu.currentPage][0]['Enter Value'] += data.data
                 pub.publish(str(loadPages['Edit'][0]))
-                if(str(data.data) == "Ok"):
-                    initMenu.currentPage = loadPages[initMenu.breadcrm[-1]]
-                    pub.publish(str(loadPages[initMenu.breadcrm[-1]][0]))
             else:
                 allInfoInPageKeys = loadPages[initMenu.currentPage][0].keys() #example 1,2
                 if(data.data in allInfoInPageKeys):
