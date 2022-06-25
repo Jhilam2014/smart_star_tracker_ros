@@ -14,7 +14,8 @@
             "3": 1,
             "4": "Run",
             "5": "Stop",
-            "#": "Subtract"
+            "#": "Subtract",
+            "Ok": "Edit" 
         }
     ],
     "Alignment": [
@@ -22,6 +23,11 @@
             "Page": "Alignment",
             "1": "Run",
             "0": "Stop"
+        }
+    ],
+    "Edit": [
+        {
+            "Enter Value": 0
         }
     ]
 }

@@ -33,6 +33,7 @@ class Menu:
         self.breadcrm = []
         self.firstCheck = True
         self.lastOperation = "1"
+        self.editFlag = False
 
 
 pub = rospy.Publisher('disData', String, queue_size=1000)
@@ -96,6 +97,10 @@ def menuBoardCbk(data):
                     if(str(data.data) == "#"):
                         value = loadPages[initMenu.breadcrm[-1]][0][initMenu.lastOperation]
                         loadPages[initMenu.breadcrm[-1]][0][initMenu.lastOperation] = operations(value,str(data.data),10)
+                    elif(str(data.data) == "Ok"):
+                        initMenu.editFlag = not bool(initMenu.editFlag)
+                        if(initMenu.editFlag == True):
+                            pub.publish(str(loadPages['Edit']))
                     else:
                         loadPages[initMenu.breadcrm[-1]][0][str(data.data)] = operations(value,str(data.data),10)
                         initMenu.lastOperation = str(data.data)

@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ir_pin, GPIO.IN)
 
 keyBoardMap = {
-    '12901614333' : "Menu",
+    '12901614333' : "Ok",
     '12901663293' : ">>",
     '12901622493' : "<<",
     '12901640343' : '1',
