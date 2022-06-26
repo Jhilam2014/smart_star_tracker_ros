@@ -11,7 +11,7 @@ import re
 
 flag = True
 
-def callback(self,event):
+def callback(event):
     flagData = globals()
     msg = event.data
     if (msg=="hit"):
