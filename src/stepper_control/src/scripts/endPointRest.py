@@ -52,7 +52,7 @@ def callback(event):
         os.system('rosnode kill /stepper_motor_controller')
         time.sleep(5)
 
-        steps = 30000
+        steps = 60000
         direc = bool(0)
         tm = 1/float(10000)
         initMotor.motorCode(direc,steps,tm)
