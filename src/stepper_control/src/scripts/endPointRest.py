@@ -2,8 +2,6 @@
 
 import rospy
 from std_msgs.msg import String
-import RPi.GPIO as GPIO
-from RpiMotorLib import RpiMotorLib
 import os
 import time
 import json
@@ -21,6 +19,15 @@ STRUC_SETT = {
     ],
     "type": "Speed Control"
 }
+f = open('pages.json','r+')
+jsonData = json.load(f)
+jsonString=json.dumps(jsonData)
+loadPages = json.loads(jsonString)
+loadPages["type"] = "Speed Control"
+loadPages["Speed Control"][0]["1"] = 60
+loadPages["Speed Control"][0]["2"] = 0
+loadPages["Speed Control"][0]["3"] = 10000
+
 def callback(event):
     msg = event.data
     if (msg=="hit"):
@@ -29,7 +36,7 @@ def callback(event):
             Flag = False
             time.sleep(5)
             os.system('rosrun stepper_control motor_control.py')
-            pub_motor.publish(str(STRUC_SETT))
+            pub_motor.publish(str(loadPages))
     else:
         Flag = True
        
