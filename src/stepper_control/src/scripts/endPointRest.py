@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
+from numpy import mat
 import rospy
 from std_msgs.msg import String
 import os
 import time
 import json
+import rosnode
+import re
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
@@ -24,9 +27,16 @@ STRUC_SETT['type'] = 'Speed Control'
 def callback(event):
     msg = event.data
     if (msg=="hit"):
-        os.system('rosnode kill /stepper_motor_controller')
+        allNodes = rosnode.get_node_names()
+        regex = r"\/stepper_motor_controller.*$"
+        allSelectedNodes = []
+        for each in allNodes:
+            matches = re.match(regex, str(each), re.M)
+            if(matches):
+                allSelectedNodes.append(matches.group())
+        for i in allSelectedNodes:
+            os.system('rosnode kill '+i)
         time.sleep(5)
-        
         os.system('rosrun stepper_control motor_control.py')
         dt = STRUC_SETT
         pub_motor.publish(str(dt))
