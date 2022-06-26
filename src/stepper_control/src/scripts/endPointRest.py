@@ -29,6 +29,7 @@ loadPages["Speed Control"][0]["2"] = 0
 loadPages["Speed Control"][0]["3"] = 10000
 Flag = True
 def callback(event):
+    global Flag
     msg = event.data
     if (msg=="hit"):
         if(Flag == True):
