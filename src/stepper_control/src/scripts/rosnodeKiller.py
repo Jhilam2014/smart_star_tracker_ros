@@ -4,11 +4,16 @@ import rospy
 from std_msgs.msg import String
 import os
 import time
+import rosnode
 
 def callback(event):
     msg = event.data
     if (msg=="hit"):
         os.system('rosnode kill /stepper_motor_controller')
+    else:
+        allNodes = rosnode.get_node_names()
+        if('/stepper_motor_controller' not in allNodes):
+            os.system('rosrun stepper_control motor_control.py')
     time.sleep(5)
     #publish the kill info 
 
