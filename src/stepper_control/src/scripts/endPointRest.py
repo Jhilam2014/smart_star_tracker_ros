@@ -8,7 +8,7 @@ import json
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
-Flag = True
+
 STRUC_SETT = {
     "Speed Control": [
         {
@@ -27,14 +27,14 @@ loadPages["type"] = "Speed Control"
 loadPages["Speed Control"][0]["1"] = 60
 loadPages["Speed Control"][0]["2"] = 0
 loadPages["Speed Control"][0]["3"] = 10000
-
+Flag = True
 def callback(event):
     msg = event.data
     if (msg=="hit"):
         if(Flag == True):
             os.system('rosnode kill /stepper_motor_controller')
             Flag = False
-            time.sleep(5)
+            time.sleep(3)
             os.system('rosrun stepper_control motor_control.py')
             pub_motor.publish(str(loadPages))
     else:
