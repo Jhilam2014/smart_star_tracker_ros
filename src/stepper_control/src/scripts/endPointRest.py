@@ -9,37 +9,29 @@ import json
 import rosnode
 import re
 
-pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
+flag = True
 
-
-STRUC_SETT = {
-    "Speed Control": [
-        {
-           
-            "1": 60,
-            "2": 0,
-            "3": 10000,
-        }
-    ]
-}
-STRUC_SETT['type'] = 'Speed Control'
-
-def callback(event):
+def callback(self,event):
+    flagData = globals()
     msg = event.data
     if (msg=="hit"):
-        allNodes = rosnode.get_node_names()
-        regex = r"\/stepper_motor_controller.*$"
-        allSelectedNodes = []
-        for each in allNodes:
-            matches = re.match(regex, str(each), re.M)
-            if(matches):
-                allSelectedNodes.append(matches.group())
-        for i in allSelectedNodes:
-            os.system('rosnode kill '+i)
-        time.sleep(5)
-        os.system('rosrun stepper_control motor_control.py')
-        dt = STRUC_SETT
-        pub_motor.publish(str(dt))
+        
+        if(flagData['flag']):
+            flagData['flag'] = False
+            allNodes = rosnode.get_node_names()
+            regex = r"\/stepper_motor_controller.*$"
+            allSelectedNodes = []
+            for each in allNodes:
+                matches = re.match(regex, str(each), re.M)
+                if(matches):
+                    allSelectedNodes.append(matches.group())
+            for i in allSelectedNodes:
+                os.system('rosnode kill '+i)
+            time.sleep(5)
+            os.system('rosrun stepper_control motor_control.py')
+    else:
+        flagData['flag'] = True
+
 
 
 def listener():
@@ -49,6 +41,7 @@ def listener():
 if __name__ == '__main__':
     rospy.init_node('rosnode_killer', anonymous=True)
     try:
-        listener()
+        initEndPoint = EndPoint()
+        initEndPoint.listener()
     except rospy.ROSInterruptException:
         pass
