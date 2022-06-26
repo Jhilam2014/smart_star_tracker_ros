@@ -28,7 +28,7 @@ def callback(event):
             for i in allSelectedNodes:
                 os.system('rosnode kill '+i)
             time.sleep(5)
-            os.system('rosrun stepper_control motor_control.py')
+            os.system('rosrun stepper_control motor_control.py &')
     else:
         flagData['flag'] = True
     rospy.loginfo(flagData['flag'])
