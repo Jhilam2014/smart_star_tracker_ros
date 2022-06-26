@@ -3,6 +3,6 @@
     <node pkg="stepper_control" type="irData.py" name="IR_sensor_Data" cwd="node"/>
     <node pkg="stepper_control" type="keyboard_info.py" name="keyboard_info_parse" cwd="node"/>
     <node pkg="stepper_control" type="motor_control.py" name="stepper_motor_controller" cwd="node"/>
-    <node pkg="endswitch" type="endSwitchDataCol.py" name="endSwitchObserverNode" cwd="node"/>
-    <node pkg="stepper_control" type="endSwitchObserverSub.py" name="endswitch_observer_encoder" cwd="node"/>
+    <!-- <node pkg="endswitch" type="endSwitchDataCol.py" name="endSwitchObserverNode" cwd="node"/>
+    <node pkg="stepper_control" type="endSwitchObserverSub.py" name="endswitch_observer_encoder" cwd="node"/> -->
 </launch>
