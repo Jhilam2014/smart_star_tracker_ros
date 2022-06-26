@@ -31,6 +31,7 @@ def callback(event):
             os.system('rosrun stepper_control motor_control.py')
     else:
         flagData['flag'] = True
+    rospy.loginfo(flagData['flag'])
 
 
 
