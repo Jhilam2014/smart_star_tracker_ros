@@ -6,13 +6,14 @@ import os
 import time
 
 def callback(event):
-    nodeName = event.data
-    os.system('rosnode kill '+nodeName)
+    msg = event.data
+    if (msg=="hit"):
+        os.system('rosnode kill /stepper_motor_controller')
     time.sleep(5)
     #publish the kill info 
-    
+
 def listener():
-    rospy.Subscriber('killNode',String, callback)
+    rospy.Subscriber('endswitch_observer',String, callback)
     rospy.spin()
 
 if __name__ == '__main__':
