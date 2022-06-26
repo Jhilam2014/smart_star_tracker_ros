@@ -41,7 +41,6 @@ def listener():
 if __name__ == '__main__':
     rospy.init_node('rosnode_killer', anonymous=True)
     try:
-        initEndPoint = EndPoint()
-        initEndPoint.listener()
+        listener()
     except rospy.ROSInterruptException:
         pass
