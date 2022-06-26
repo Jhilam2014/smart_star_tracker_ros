@@ -54,7 +54,7 @@ def callback(event):
 
         steps = 30000
         direc = bool(0)
-        tm = 1/float(1000)
+        tm = 1/float(10000)
         initMotor.motorCode(direc,steps,tm)
         time.sleep(5)
         os.system('rosrun stepper_control motor_control.py')
