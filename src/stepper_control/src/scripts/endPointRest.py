@@ -2,44 +2,61 @@
 
 import rospy
 from std_msgs.msg import String
+import RPi.GPIO as GPIO
+from RpiMotorLib import RpiMotorLib
 import os
 import time
 import json
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
-
+#stepper motor pins
+direction= 22 # Direction (DIR) GPIO Pin
+step = 23 # Step GPIO Pin
+EN_pin = 12 # enable pin (LOW to enable)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(EN_pin,GPIO.OUT)
 STRUC_SETT = {
     "Speed Control": [
         {
+           
             "1": 60,
             "2": 0,
-            "3": 10000
+            "3": 10000,
         }
-    ],
-    "type": "Speed Control"
+    ]
 }
-f = open('pages.json','r+')
-jsonData = json.load(f)
-jsonString=json.dumps(jsonData)
-loadPages = json.loads(jsonString)
-loadPages["type"] = "Speed Control"
-loadPages["Speed Control"][0]["1"] = 60
-loadPages["Speed Control"][0]["2"] = 0
-loadPages["Speed Control"][0]["3"] = 10000
-Flag = True
+STRUC_SETT['type'] = 'Speed Control'
+
+
+class CircuitControl:
+ 
+
+    def motorCode(self,dirc,spd,tm):
+        
+        mymotortest = RpiMotorLib.A4988Nema(direction, step,(-1,-1,-1), "A4988")
+        GPIO.output(EN_pin,GPIO.LOW) 
+
+        mymotortest.motor_go(dirc, # True=Clockwise, False=Counter-Clockwise
+                        "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
+                        int(spd), # number of steps
+                        float(tm), # step delay [sec]
+                        False, # True = print verbose output 
+                        .0) # initial delay [sec]
+
+initMotor = CircuitControl()
+
 def callback(event):
-    global Flag
     msg = event.data
     if (msg=="hit"):
-        if(Flag == True):
-            os.system('rosnode kill /stepper_motor_controller')
-            Flag = False
-            time.sleep(3)
-            os.system('rosrun stepper_control motor_control.py')
-            pub_motor.publish(str(loadPages))
-    else:
-        Flag = True
+        os.system('rosnode kill /stepper_motor_controller')
+        time.sleep(2)
+        steps = 60000
+        direc = bool(0)
+        tm = 1/float(10000)
+        initMotor.motorCode(direc,steps,tm)
+        time.sleep(1)
+        os.system('rosrun stepper_control motor_control.py')
        
 
 
