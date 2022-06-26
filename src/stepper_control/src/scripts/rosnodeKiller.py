@@ -4,20 +4,19 @@ import rospy
 from std_msgs.msg import String
 import os
 import time
-import rosnode
+import json
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
-STRUC_SETT = {
-    "Speed Control": [
-        {
-            "1": 60,
-            "2": 0,
-            "3": 10000
-        }
-    ],
-    "type" : "Speed Control"
-}
+
+f = open('pages.json','r+')
+jsonData = json.load(f)
+jsonString=json.dumps(jsonData)
+STRUC_SETT = json.loads(jsonString)
+STRUC_SETT['type'] = 'Speed Control'
+STRUC_SETT["Speed Control"][0]["1"] = 60
+STRUC_SETT["Speed Control"][0]["2"] = 0
+STRUC_SETT["Speed Control"][0]["3"] = 10000
 
 def callback(event):
     msg = event.data
