@@ -6,16 +6,29 @@ import os
 import time
 import rosnode
 
+pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
+
+STRUC_SETT = {
+    "Speed Control": [
+        {
+            "1": 60,
+            "2": 1,
+            "3": 10000
+        }
+    ],
+    "type" : "Speed Control"
+}
+
 def callback(event):
     msg = event.data
     if (msg=="hit"):
         os.system('rosnode kill /stepper_motor_controller')
-    else:
-        allNodes = rosnode.get_node_names()
-        if('/stepper_motor_controller' not in allNodes):
-            os.system('rosrun stepper_control motor_control.py')
-    time.sleep(5)
-    #publish the kill info 
+        time.sleep(5)
+        
+        os.system('rosrun stepper_control motor_control.py')
+        dt = STRUC_SETT
+        pub_motor.publish(str(dt))
+
 
 def listener():
     rospy.Subscriber('endswitch_observer',String, callback)
