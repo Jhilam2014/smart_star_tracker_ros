@@ -1,0 +1,2 @@
+set(trajectory_msgs_MESSAGE_FILES "/home/pi/Documents/ros_tracker/src/common_msgs/trajectory_msgs/msg/JointTrajectory.msg;/home/pi/Documents/ros_tracker/src/common_msgs/trajectory_msgs/msg/JointTrajectoryPoint.msg;/home/pi/Documents/ros_tracker/src/common_msgs/trajectory_msgs/msg/MultiDOFJointTrajectory.msg;/home/pi/Documents/ros_tracker/src/common_msgs/trajectory_msgs/msg/MultiDOFJointTrajectoryPoint.msg")
+set(trajectory_msgs_SERVICE_FILES "")

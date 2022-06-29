@@ -1,8 +1,0 @@
-prefix=/home/pi/Documents/ros_tracker/devel
-
-Name: endswitch
-Description: Description of endswitch
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
