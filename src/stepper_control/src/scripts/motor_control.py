@@ -15,8 +15,8 @@ import yaml
 
 
 #stepper motor pins
-direction= 22 # Direction (DIR) GPIO Pin
-step = 23 # Step GPIO Pin
+direction= 22 # Direction (DIR) GPIO Pin 15
+step = 23 # Step GPIO Pin 16
 EN_pin = 12 # enable pin (LOW to enable)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(EN_pin,GPIO.OUT)
