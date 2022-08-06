@@ -32,7 +32,6 @@ class Menu:
         self.firstCheck = True
         self.lastOperation = "1"
         self.editFlag = False
-        self.angleVal = 0
 
 
 pub = rospy.Publisher('disData', String, queue_size=1000)
@@ -62,17 +61,9 @@ def operations(val,type,amt):
     val = opMap[type](val,amt)
     return val
         
-def angleCallBack(data):
-    msg = data.data
-    if (msg!="L_on" or msg!="R_on"):
-        angleVal = msg
-        initMenu.angleVal = angleVal
 
 def menuBoardCbk(data):
     rospy.loginfo(data)
-
-    rospy.Subscriber('endswitch_observer',String, angleCallBack)
-    rospy.spin()
 
     if initMenu.firstCheck:
         pub.publish(MAIN_MENU)
@@ -113,9 +104,6 @@ def menuBoardCbk(data):
                         dt = loadPages
                         dt["type"] = initMenu.currentPage
                         pub_motor.publish(str(dt))
-                        initMenu.currentPage = 'Angle Data'
-                        loadPages['Angle Data'][0]['Angle'] = initMenu.angleVal
-                        pub.publish(str(loadPages['Angle Data'][0]))
                     else: #set value
                         value = loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                         
