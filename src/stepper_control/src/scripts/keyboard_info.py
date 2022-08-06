@@ -104,6 +104,9 @@ def menuBoardCbk(data):
                         dt = loadPages
                         dt["type"] = initMenu.currentPage
                         pub_motor.publish(str(dt))
+                        initMenu.currentPage = 'Angle Data'
+                        loadPages['Angle Data'][0]['Angle'] = initMenu.angleVal
+                        pub.publish(str(loadPages['Angle Data'][0]))
                     else: #set value
                         value = loadPages[initMenu.breadcrm[-1]][0][str(data.data)]
                         
