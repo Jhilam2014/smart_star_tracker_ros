@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import json
-from typing_extensions import Self
 import rospy
 from std_msgs.msg import String
 import time 
