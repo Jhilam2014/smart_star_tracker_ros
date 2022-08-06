@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from numpy import mat
 import rospy
 from std_msgs.msg import String
 import os
@@ -14,7 +13,8 @@ flag = True
 def callback(event):
     flagData = globals()
     msg = event.data
-    if (msg=="hit"):
+    angle=None
+    if (msg=="L_on" or msg=="R_on"):
         
         if(flagData['flag']):
             flagData['flag'] = False
