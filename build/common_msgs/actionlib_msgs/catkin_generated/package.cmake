@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "actionlib_msgs")
-set(actionlib_msgs_VERSION "1.13.1")
+set(actionlib_msgs_VERSION "1.12.8")
 set(actionlib_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(actionlib_msgs_PACKAGE_FORMAT "1")
 set(actionlib_msgs_BUILD_DEPENDS "message_generation" "std_msgs")

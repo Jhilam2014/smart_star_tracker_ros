@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "trajectory_msgs")
-set(trajectory_msgs_VERSION "1.13.1")
+set(trajectory_msgs_VERSION "1.12.8")
 set(trajectory_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(trajectory_msgs_PACKAGE_FORMAT "1")
 set(trajectory_msgs_BUILD_DEPENDS "message_generation" "geometry_msgs" "std_msgs")

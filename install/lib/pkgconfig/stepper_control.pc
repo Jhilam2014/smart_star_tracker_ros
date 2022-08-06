@@ -1,0 +1,8 @@
+prefix=/home/pi/Documents/ros_tracker/install
+
+Name: stepper_control
+Description: Description of stepper_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

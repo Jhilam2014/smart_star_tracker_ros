@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "geometry_msgs")
-set(geometry_msgs_VERSION "1.13.1")
+set(geometry_msgs_VERSION "1.12.8")
 set(geometry_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(geometry_msgs_PACKAGE_FORMAT "1")
 set(geometry_msgs_BUILD_DEPENDS "message_generation" "std_msgs")

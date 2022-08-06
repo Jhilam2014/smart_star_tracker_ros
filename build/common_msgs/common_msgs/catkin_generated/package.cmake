@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "common_msgs")
-set(common_msgs_VERSION "1.13.1")
+set(common_msgs_VERSION "1.12.8")
 set(common_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(common_msgs_PACKAGE_FORMAT "1")
 set(common_msgs_BUILD_DEPENDS )

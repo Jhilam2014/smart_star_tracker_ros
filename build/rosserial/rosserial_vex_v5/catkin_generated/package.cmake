@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_vex_v5")
-set(rosserial_vex_v5_VERSION "0.9.2")
+set(rosserial_vex_v5_VERSION "0.8.0")
 set(rosserial_vex_v5_MAINTAINER "Canyon Turtle <canyonturtle@gmail.com>")
 set(rosserial_vex_v5_PACKAGE_FORMAT "1")
 set(rosserial_vex_v5_BUILD_DEPENDS )

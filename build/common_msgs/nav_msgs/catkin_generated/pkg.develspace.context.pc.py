@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "geometry_msgs;message_runtime;std_msgs;actionlib_msgs"
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "nav_msgs"
 PROJECT_SPACE_DIR = "/home/pi/Documents/ros_tracker/devel"
-PROJECT_VERSION = "1.13.1"
+PROJECT_VERSION = "1.12.8"

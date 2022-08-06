@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_msgs")
-set(rosserial_msgs_VERSION "0.9.2")
+set(rosserial_msgs_VERSION "0.8.0")
 set(rosserial_msgs_MAINTAINER "Paul Bouchier <paul.bouchier@gmail.com>, Mike Purvis <mpurvis@clearpathrobotics.com>")
 set(rosserial_msgs_PACKAGE_FORMAT "1")
 set(rosserial_msgs_BUILD_DEPENDS "message_generation")

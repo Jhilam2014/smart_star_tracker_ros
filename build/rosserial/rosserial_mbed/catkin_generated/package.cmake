@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_mbed")
-set(rosserial_mbed_VERSION "0.9.2")
+set(rosserial_mbed_VERSION "0.8.0")
 set(rosserial_mbed_MAINTAINER "Gary Servin <garyservin@gmail.com>")
 set(rosserial_mbed_PACKAGE_FORMAT "1")
 set(rosserial_mbed_BUILD_DEPENDS "message_generation")

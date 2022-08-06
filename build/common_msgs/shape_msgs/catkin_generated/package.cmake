@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "shape_msgs")
-set(shape_msgs_VERSION "1.13.1")
+set(shape_msgs_VERSION "1.12.8")
 set(shape_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(shape_msgs_PACKAGE_FORMAT "1")
 set(shape_msgs_BUILD_DEPENDS "geometry_msgs" "message_generation" "std_msgs")

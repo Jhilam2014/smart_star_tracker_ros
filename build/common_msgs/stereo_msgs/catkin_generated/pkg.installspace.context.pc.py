@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "message_runtime;sensor_msgs;std_msgs".replace(';', ' '
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "stereo_msgs"
 PROJECT_SPACE_DIR = "/home/pi/Documents/ros_tracker/install"
-PROJECT_VERSION = "1.13.1"
+PROJECT_VERSION = "1.12.8"

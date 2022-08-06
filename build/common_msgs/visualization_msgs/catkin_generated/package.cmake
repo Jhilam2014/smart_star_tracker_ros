@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "visualization_msgs")
-set(visualization_msgs_VERSION "1.13.1")
+set(visualization_msgs_VERSION "1.12.8")
 set(visualization_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(visualization_msgs_PACKAGE_FORMAT "1")
 set(visualization_msgs_BUILD_DEPENDS "geometry_msgs" "message_generation" "std_msgs")

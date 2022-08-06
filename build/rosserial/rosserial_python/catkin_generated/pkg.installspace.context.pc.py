@@ -5,4 +5,4 @@ PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "rosserial_python"
 PROJECT_SPACE_DIR = "/home/pi/Documents/ros_tracker/install"
-PROJECT_VERSION = "0.9.2"
+PROJECT_VERSION = "0.8.0"

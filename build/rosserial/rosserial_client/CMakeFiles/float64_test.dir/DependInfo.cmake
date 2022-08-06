@@ -15,7 +15,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/pi/Documents/ros_tracker/src/rosserial/rosserial_client/src/ros_lib"
+  "/home/pi/Documents/ros_tracker/src/rosserial/rosserial_client/src"
   "/home/pi/Documents/ros_tracker/devel/include"
   "/opt/ros/melodic/include"
   "/usr/src/googletest/googletest/include"

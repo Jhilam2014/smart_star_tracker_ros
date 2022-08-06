@@ -844,19 +844,6 @@ _run_tests_rosserial_client_gtest/fast:
 .PHONY : _run_tests_rosserial_client_gtest/fast
 
 #=============================================================================
-# Target rules for targets named run_tests_rosserial_client_gtest
-
-# Build rule for target.
-run_tests_rosserial_client_gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_rosserial_client_gtest
-.PHONY : run_tests_rosserial_client_gtest
-
-# fast build rule for target.
-run_tests_rosserial_client_gtest/fast:
-	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest.dir/build.make rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest.dir/build
-.PHONY : run_tests_rosserial_client_gtest/fast
-
-#=============================================================================
 # Target rules for targets named _run_tests_rosserial_client_gtest_subscriber_test
 
 # Build rule for target.
@@ -894,19 +881,6 @@ _run_tests_rosserial_client: cmake_check_build_system
 _run_tests_rosserial_client/fast:
 	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/_run_tests_rosserial_client.dir/build.make rosserial/rosserial_client/CMakeFiles/_run_tests_rosserial_client.dir/build
 .PHONY : _run_tests_rosserial_client/fast
-
-#=============================================================================
-# Target rules for targets named _run_tests_rosserial_client_gtest_time_test
-
-# Build rule for target.
-_run_tests_rosserial_client_gtest_time_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_rosserial_client_gtest_time_test
-.PHONY : _run_tests_rosserial_client_gtest_time_test
-
-# fast build rule for target.
-_run_tests_rosserial_client_gtest_time_test/fast:
-	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/_run_tests_rosserial_client_gtest_time_test.dir/build.make rosserial/rosserial_client/CMakeFiles/_run_tests_rosserial_client_gtest_time_test.dir/build
-.PHONY : _run_tests_rosserial_client_gtest_time_test/fast
 
 #=============================================================================
 # Target rules for targets named run_tests_rosserial_client
@@ -948,6 +922,19 @@ run_tests_rosserial_client_gtest_subscriber_test/fast:
 .PHONY : run_tests_rosserial_client_gtest_subscriber_test/fast
 
 #=============================================================================
+# Target rules for targets named run_tests_rosserial_client_gtest
+
+# Build rule for target.
+run_tests_rosserial_client_gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_rosserial_client_gtest
+.PHONY : run_tests_rosserial_client_gtest
+
+# fast build rule for target.
+run_tests_rosserial_client_gtest/fast:
+	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest.dir/build.make rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest.dir/build
+.PHONY : run_tests_rosserial_client_gtest/fast
+
+#=============================================================================
 # Target rules for targets named clean_test_results_rosserial_client
 
 # Build rule for target.
@@ -972,32 +959,6 @@ subscriber_test: cmake_check_build_system
 subscriber_test/fast:
 	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/subscriber_test.dir/build.make rosserial/rosserial_client/CMakeFiles/subscriber_test.dir/build
 .PHONY : subscriber_test/fast
-
-#=============================================================================
-# Target rules for targets named time_test
-
-# Build rule for target.
-time_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 time_test
-.PHONY : time_test
-
-# fast build rule for target.
-time_test/fast:
-	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/time_test.dir/build.make rosserial/rosserial_client/CMakeFiles/time_test.dir/build
-.PHONY : time_test/fast
-
-#=============================================================================
-# Target rules for targets named run_tests_rosserial_client_gtest_time_test
-
-# Build rule for target.
-run_tests_rosserial_client_gtest_time_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests_rosserial_client_gtest_time_test
-.PHONY : run_tests_rosserial_client_gtest_time_test
-
-# fast build rule for target.
-run_tests_rosserial_client_gtest_time_test/fast:
-	$(MAKE) -f rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest_time_test.dir/build.make rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest_time_test.dir/build
-.PHONY : run_tests_rosserial_client_gtest_time_test/fast
 
 #=============================================================================
 # Target rules for targets named actionlib_msgs_generate_messages_py
@@ -4275,18 +4236,15 @@ help:
 	@echo "... rosserial_msgs_genpy"
 	@echo "... run_tests_rosserial_client_gtest_float64_test"
 	@echo "... _run_tests_rosserial_client_gtest"
-	@echo "... run_tests_rosserial_client_gtest"
 	@echo "... _run_tests_rosserial_client_gtest_subscriber_test"
 	@echo "... float64_test"
 	@echo "... _run_tests_rosserial_client"
-	@echo "... _run_tests_rosserial_client_gtest_time_test"
 	@echo "... run_tests_rosserial_client"
 	@echo "... _run_tests_rosserial_client_gtest_float64_test"
 	@echo "... run_tests_rosserial_client_gtest_subscriber_test"
+	@echo "... run_tests_rosserial_client_gtest"
 	@echo "... clean_test_results_rosserial_client"
 	@echo "... subscriber_test"
-	@echo "... time_test"
-	@echo "... run_tests_rosserial_client_gtest_time_test"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_genpy"
 	@echo "... actionlib_msgs_gennodejs"

@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_client")
-set(rosserial_client_VERSION "0.9.2")
+set(rosserial_client_VERSION "0.8.0")
 set(rosserial_client_MAINTAINER "Paul Bouchier <paul.bouchier@gmail.com>, Mike Purvis <mpurvis@clearpathrobotics.com>")
 set(rosserial_client_PACKAGE_FORMAT "2")
 set(rosserial_client_BUILD_DEPENDS )

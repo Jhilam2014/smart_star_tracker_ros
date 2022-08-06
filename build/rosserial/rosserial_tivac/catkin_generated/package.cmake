@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_tivac")
-set(rosserial_tivac_VERSION "0.9.2")
+set(rosserial_tivac_VERSION "0.8.0")
 set(rosserial_tivac_MAINTAINER "Vitor Matos <vmatos@robosavvy.com>")
 set(rosserial_tivac_PACKAGE_FORMAT "1")
 set(rosserial_tivac_BUILD_DEPENDS )

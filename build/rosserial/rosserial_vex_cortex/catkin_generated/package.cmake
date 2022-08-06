@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_vex_cortex")
-set(rosserial_vex_cortex_VERSION "0.9.2")
+set(rosserial_vex_cortex_VERSION "0.8.0")
 set(rosserial_vex_cortex_MAINTAINER "Canyon Turtle <canyonturtle@gmail.com>")
 set(rosserial_vex_cortex_PACKAGE_FORMAT "1")
 set(rosserial_vex_cortex_BUILD_DEPENDS )

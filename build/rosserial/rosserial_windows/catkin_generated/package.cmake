@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "rosserial_windows")
-set(rosserial_windows_VERSION "0.9.2")
+set(rosserial_windows_VERSION "0.8.0")
 set(rosserial_windows_MAINTAINER "Kareem Shehata <kshehata@clearpathrobotics.com>")
 set(rosserial_windows_PACKAGE_FORMAT "1")
 set(rosserial_windows_BUILD_DEPENDS "std_msgs" "sensor_msgs" "geometry_msgs" "nav_msgs" "rosserial_client")

@@ -1,5 +1,5 @@
 set(_CATKIN_CURRENT_PACKAGE "sensor_msgs")
-set(sensor_msgs_VERSION "1.13.1")
+set(sensor_msgs_VERSION "1.12.8")
 set(sensor_msgs_MAINTAINER "Michel Hidalgo <michel@ekumenlabs.com>")
 set(sensor_msgs_PACKAGE_FORMAT "3")
 set(sensor_msgs_BUILD_DEPENDS "geometry_msgs" "message_generation" "std_msgs")

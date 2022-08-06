@@ -1,5 +1,5 @@
 set(rosserial_xbee_SETUP_PY_SETUP_MODULE "distutils.core")
-set(rosserial_xbee_SETUP_PY_VERSION "0.9.2")
+set(rosserial_xbee_SETUP_PY_VERSION "0.8.0")
 set(rosserial_xbee_SETUP_PY_SCRIPTS "")
 set(rosserial_xbee_SETUP_PY_PACKAGES "rosserial_xbee;xbee")
 set(rosserial_xbee_SETUP_PY_PACKAGE_DIRS "src/rosserial_xbee;src/xbee")
