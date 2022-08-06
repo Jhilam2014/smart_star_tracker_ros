@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from numpy import mat
 import rospy
 from std_msgs.msg import String
 import os
