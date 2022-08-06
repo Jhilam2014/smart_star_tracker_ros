@@ -18,6 +18,11 @@
             "Ok": "Edit" 
         }
     ],
+    "Angle Data": [
+        {
+            "Angle" : ""
+        }
+    ],
     "Alignment": [
         {
             "Page": "Alignment",
