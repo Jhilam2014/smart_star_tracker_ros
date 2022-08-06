@@ -66,7 +66,7 @@ def operations(val,type,amt):
 def angleCallBack(data):
     msg = data.data
     if (msg!="L_on" or msg!="R_on"):
-        angleVal = msg.split(".")[1]
+        angleVal = msg
         initMenu.angleVal = angleVal
 
 def menuBoardCbk(data):
