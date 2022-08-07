@@ -26,7 +26,7 @@ def displayMsgCbk(data):
         draw.rectangle(device.bounding_box, outline="white", fill="black")
         rawMsg = data.data
         displayData = yaml.safe_load(str(rawMsg))
-        if(displayData['Angle']):
+        if('Angle' in displayData.keys()):
             sz = 3
         else:
             sz = 1
