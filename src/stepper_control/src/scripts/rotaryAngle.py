@@ -19,13 +19,9 @@ class ConnSubscribers(object):
 
         rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
         rospy.Subscriber('endswitch_observer',String, self.endCallbk)
-        if(self.motorStatus == True):
-            rospy.logwarn("Motor started")
-            pub.publish(self.encoder)
-    def loop(self):
+        
         rospy.logwarn("Starting Loop...")
         rospy.spin()
-
 
 
     def endCallbk(self,msg):
@@ -33,6 +29,9 @@ class ConnSubscribers(object):
         msg = msg.data
         if (msg!="L_on" or msg!="R_on"):
             self.encoder = msg
+            if(self.motorStatus == True):
+                rospy.logwarn("Motor started")
+                pub.publish(msg)
 
     def stepperCbk(self,msg):
         # This callback is the boss, this one dictates the publish rate
