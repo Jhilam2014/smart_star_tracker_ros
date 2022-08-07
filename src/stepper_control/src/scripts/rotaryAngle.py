@@ -17,7 +17,7 @@ class ConnSubscribers(object):
         self.encoder = "0"
         self.motorStatus = False
 
-        rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
+        rospy.Subscriber('stepper_motor_status',String, self.stepperCbk)
         
         
         rospy.logwarn("Starting Loop...")
@@ -33,18 +33,20 @@ class ConnSubscribers(object):
         if (msg!="L_on" or msg!="R_on"):
             self.encoder = msg
             if(self.motorStatus == True):
-                rospy.logwarn("Motor started")
+                rospy.logwarn("Motor active")
                 dt = {"Angle ": msg}
                 pub.publish(str(dt))
+            else:
+                rospy.logwarn("Motor idle")
             
 
     def stepperCbk(self,msg):
         # This callback is the boss, this one dictates the publish rate
         rospy.loginfo('motor feed %f', msg.data)
         eventData = yaml.safe_load(str(msg.data))
-        eventType = eventData['type'] 
-        rospy.loginfo(str(eventType))
-        if(eventType == 'Speed Control'):
+        eventStatus = eventData['status'] 
+        rospy.loginfo(str(eventStatus))
+        if(eventStatus == 'active'):
             self.motorStatus = True
         else:
             self.motorStatus = False

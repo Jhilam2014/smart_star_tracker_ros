@@ -21,6 +21,9 @@ EN_pin = 12 # enable pin (LOW to enable)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(EN_pin,GPIO.OUT)
 
+
+pub_stepperStatus = rospy.Publisher('stepper_motor_status', String, queue_size=1000)
+
 class CircuitControl:
  
 
@@ -28,13 +31,14 @@ class CircuitControl:
         
         mymotortest = RpiMotorLib.A4988Nema(direction, step,(-1,-1,-1), "A4988")
         GPIO.output(EN_pin,GPIO.LOW) 
-
+        pub_stepperStatus.publish(str({"status":"active"}))
         mymotortest.motor_go(dirc, # True=Clockwise, False=Counter-Clockwise
                         "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
                         int(spd), # number of steps
                         float(tm), # step delay [sec]
                         False, # True = print verbose output 
                         .0) # initial delay [sec]
+        pub_stepperStatus.publish(str({"status":"idle"}))
 
 initMotor = CircuitControl()
 
