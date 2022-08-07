@@ -18,7 +18,7 @@ class ConnSubscribers(object):
         self.motorStatus = False
 
         rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
-        rospy.Subscriber('endswitch_observer',String, self.endCallbk)
+        
         
         rospy.logwarn("Starting Loop...")
         rospy.spin()
@@ -46,6 +46,7 @@ class ConnSubscribers(object):
         rospy.loginfo(str(eventType))
         if(eventType == 'Speed Control'):
             self.motorStatus = True
+            rospy.Subscriber('endswitch_observer',String, self.endCallbk)
         else:
             self.motorStatus = False
 
