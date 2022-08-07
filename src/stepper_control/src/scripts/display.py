@@ -10,8 +10,8 @@ from std_msgs.msg import String
 import json
 import yaml
 
-serial = spi(device=0, port=0,rotate=1)
-device = sh1106(serial)
+serial = spi(device=0, port=0)
+device = sh1106(serial,rotate=1)
 
 menu = '''
 {
@@ -32,7 +32,7 @@ def displayMsgCbk(data):
         else:
             sz = 1
         for each in displayData:
-            draw.text((5, line), str(each)+':'+str(displayData[each]),font=sz, fill="white")
+            draw.text((5, line), str(each)+':'+str(displayData[each]), fill="white")
             line +=10     
 
 def listener():
