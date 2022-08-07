@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 
+from re import sub
 import rospy
 from std_msgs.msg import String
 import sys
@@ -17,12 +18,15 @@ class ConnSubscribers(object):
         self.encoder = "0"
         self.motorStatus = False
 
+        
+
+    def loopingSubs(self):
+
         rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
         rospy.Subscriber('endswitch_observer',String, self.endCallbk)
         
         rospy.logwarn("Starting Loop...")
         rospy.spin()
-
 
     def endCallbk(self,msg):
         rospy.loginfo('got encoder %f', msg.data)
@@ -53,6 +57,7 @@ if __name__ == '__main__':
     rospy.init_node('rotary_observer_node', anonymous=True,log_level=rospy.WARN)
     try:
          subs = ConnSubscribers()
+         subs.loopingSubs()
     except rospy.ROSInterruptException:
         pass
 
