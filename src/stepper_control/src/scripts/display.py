@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from tkinter import font
 from luma.core.interface.serial import i2c, spi, pcf8574
 from luma.core.interface.parallel import bitbang_6800
 from luma.core.render import canvas
@@ -9,7 +10,7 @@ from std_msgs.msg import String
 import json
 import yaml
 
-serial = spi(device=0, port=0)
+serial = spi(device=0, port=0,rotate=1)
 device = sh1106(serial)
 
 menu = '''
@@ -31,7 +32,7 @@ def displayMsgCbk(data):
         else:
             sz = 1
         for each in displayData:
-            draw.text((5, line), str(each)+':'+str(displayData[each]),sz, fill="white")
+            draw.text((5, line), str(each)+':'+str(displayData[each]),font=sz, fill="white")
             line +=10     
 
 def listener():
