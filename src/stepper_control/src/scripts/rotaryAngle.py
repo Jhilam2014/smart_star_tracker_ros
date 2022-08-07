@@ -46,9 +46,9 @@ class ConnSubscribers(object):
         rospy.loginfo(str(eventType))
         if(eventType == 'Speed Control'):
             self.motorStatus = True
-            rospy.Subscriber('endswitch_observer',String, self.endCallbk)
         else:
             self.motorStatus = False
+        rospy.Subscriber('endswitch_observer',String, self.endCallbk)
 
 
 
