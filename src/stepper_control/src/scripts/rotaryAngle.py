@@ -20,6 +20,7 @@ class ConnSubscribers(object):
         rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
         rospy.Subscriber('endswitch_observer',String, self.endCallbk)
         if(self.motorStatus == True):
+            rospy.logwarn("Motor started")
             pub.publish(self.encoder)
     def loop(self):
         rospy.logwarn("Starting Loop...")
