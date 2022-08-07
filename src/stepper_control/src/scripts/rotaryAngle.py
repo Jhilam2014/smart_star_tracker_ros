@@ -26,6 +26,7 @@ class ConnSubscribers(object):
 
     def endCallbk(self,msg):
         rospy.loginfo('got encoder %f', msg.data)
+        print(msg.data)
         msg = msg.data
         if (msg!="L_on" or msg!="R_on"):
             self.encoder = msg
@@ -52,7 +53,6 @@ if __name__ == '__main__':
     rospy.init_node('rotary_observer_node', anonymous=True,log_level=rospy.WARN)
     try:
          subs = ConnSubscribers()
-         subs.loop()
     except rospy.ROSInterruptException:
         pass
 
