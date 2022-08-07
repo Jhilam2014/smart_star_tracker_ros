@@ -18,8 +18,6 @@ class ConnSubscribers(object):
         self.motorStatus = False
 
         rospy.Subscriber('stepper_motor_status',String, self.stepperCbk)
-        
-        
         rospy.logwarn("Starting Loop...")
         rospy.spin()
 
