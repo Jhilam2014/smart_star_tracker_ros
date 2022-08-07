@@ -7,7 +7,7 @@ import sys
 from time import sleep
 import yaml
 
-
+pub = rospy.Publisher('disData', String, queue_size=1000)
 
 class ConnSubscribers(object):
 
@@ -25,24 +25,24 @@ class ConnSubscribers(object):
         rospy.logwarn("Starting Loop...")
         rospy.spin()
 
-pub = rospy.Publisher('disData', String, queue_size=1000)
 
-def endCallbk(self,msg):
-    rospy.loginfo('got encoder %f', msg.data)
-    msg = msg.data
-    if (msg!="L_on" or msg!="R_on"):
-        self.encoder = msg
 
-def stepperCbk(self,msg):
-    # This callback is the boss, this one dictates the publish rate
-    rospy.loginfo('motor feed %f', msg.data)
-    eventData = yaml.safe_load(str(msg.data))
-    eventType = eventData['type'] 
-    rospy.loginfo(str(eventType))
-    if(eventType == 'Speed Control'):
-        self.motorStatus = True
-    else:
-        self.motorStatus = False
+    def endCallbk(self,msg):
+        rospy.loginfo('got encoder %f', msg.data)
+        msg = msg.data
+        if (msg!="L_on" or msg!="R_on"):
+            self.encoder = msg
+
+    def stepperCbk(self,msg):
+        # This callback is the boss, this one dictates the publish rate
+        rospy.loginfo('motor feed %f', msg.data)
+        eventData = yaml.safe_load(str(msg.data))
+        eventType = eventData['type'] 
+        rospy.loginfo(str(eventType))
+        if(eventType == 'Speed Control'):
+            self.motorStatus = True
+        else:
+            self.motorStatus = False
 
 
 
