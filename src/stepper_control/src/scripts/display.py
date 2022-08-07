@@ -11,7 +11,7 @@ import json
 import yaml
 
 serial = spi(device=0, port=0)
-device = sh1106(serial,rotate=1)
+device = sh1106(serial,rotate=2)
 
 menu = '''
 {
