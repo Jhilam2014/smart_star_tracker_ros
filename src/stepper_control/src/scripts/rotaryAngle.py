@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 
-from re import sub
 import rospy
 from std_msgs.msg import String
 import sys
@@ -18,22 +17,14 @@ class ConnSubscribers(object):
         self.encoder = "0"
         self.motorStatus = False
 
-        
-
-    def loopingSubs(self):
-        r = rospy.Rate(1000)  # 1000 Hz
-
-        while not rospy.is_shutdown():
-
-            rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
-            rospy.Subscriber('endswitch_observer',String, self.endCallbk)
-
-            sleep(1)
-
-        
+        rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
+        rospy.Subscriber('endswitch_observer',String, self.endCallbk)
         
         rospy.logwarn("Starting Loop...")
         rospy.spin()
+
+    
+
 
     def endCallbk(self,msg):
         rospy.loginfo('got encoder %f', msg.data)
@@ -43,7 +34,8 @@ class ConnSubscribers(object):
             self.encoder = msg
             if(self.motorStatus == True):
                 rospy.logwarn("Motor started")
-                pub.publish(msg)
+                pub.publish({"Angle ": msg})
+            
 
     def stepperCbk(self,msg):
         # This callback is the boss, this one dictates the publish rate
@@ -64,7 +56,6 @@ if __name__ == '__main__':
     rospy.init_node('rotary_observer_node', anonymous=True,log_level=rospy.WARN)
     try:
          subs = ConnSubscribers()
-         subs.loopingSubs()
     except rospy.ROSInterruptException:
         pass
 
