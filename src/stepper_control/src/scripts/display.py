@@ -9,8 +9,6 @@ import rospy
 from std_msgs.msg import String
 import json
 import yaml
-from PIL import ImageFont
-FontTemp = ImageFont.truetype("./TestFont.otf",16)
 
 serial = spi(device=0, port=0)
 device = sh1106(serial,rotate=2,mode=1)
@@ -34,7 +32,7 @@ def displayMsgCbk(data):
         else:
             sz = 1
         for each in displayData:
-            draw.text((5, line), str(each)+':'+str(displayData[each]), fill="white",font=FontTemp)
+            draw.text((5, line), str(each)+':'+str(displayData[each]), fill="red")
             line +=10     
 
 def listener():
