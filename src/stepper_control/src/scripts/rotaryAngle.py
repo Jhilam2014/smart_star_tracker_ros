@@ -21,9 +21,16 @@ class ConnSubscribers(object):
         
 
     def loopingSubs(self):
+        r = rospy.Rate(1000)  # 1000 Hz
 
-        rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
-        rospy.Subscriber('endswitch_observer',String, self.endCallbk)
+        while not rospy.is_shutdown():
+
+            rospy.Subscriber('stepper_motor_controller_info',String, self.stepperCbk)
+            rospy.Subscriber('endswitch_observer',String, self.endCallbk)
+
+            sleep(1)
+
+        
         
         rospy.logwarn("Starting Loop...")
         rospy.spin()
