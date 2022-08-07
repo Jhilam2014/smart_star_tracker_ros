@@ -32,7 +32,7 @@ class ConnSubscribers(object):
             self.encoder = msg
             if(self.motorStatus == True):
                 rospy.logwarn("Motor active")
-                dt = {"Angle ": msg}
+                dt = {"Angle": msg}
                 pub.publish(str(dt))
             else:
                 rospy.logwarn("Motor idle")

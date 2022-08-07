@@ -20,14 +20,18 @@ menu = '''
 '''
 def displayMsgCbk(data):
     print(data.data)
+    
     with canvas(device) as draw:
         line = 5
         draw.rectangle(device.bounding_box, outline="white", fill="black")
         rawMsg = data.data
         displayData = yaml.safe_load(str(rawMsg))
-      
+        if(displayData['Angle']):
+            sz = 3
+        else:
+            sz = 1
         for each in displayData:
-            draw.text((5, line), str(each)+':'+str(displayData[each]), fill="white")
+            draw.text((5, line), str(each)+':'+str(displayData[each]),sz, fill="white")
             line +=10     
 
 def listener():
