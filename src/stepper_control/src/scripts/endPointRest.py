@@ -13,7 +13,6 @@ flag = True
 def callback(event):
     flagData = globals()
     msg = event.data
-    angle=None
     if (msg=="L_on" or msg=="R_on"):
         
         if(flagData['flag']):
