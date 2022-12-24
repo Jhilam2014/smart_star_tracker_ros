@@ -24,4 +24,13 @@ $(document).ready(function() {
         }
     });
 
+
+    $("#run_button").click(function(){
+        var txt = JSON.parse($("#textAreaExample").val());
+  
+        $.post("/run", {suggest: txt}, function(result){
+          console.log(result);
+        });
+      });
+
 });
