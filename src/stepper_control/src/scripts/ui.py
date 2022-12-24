@@ -27,7 +27,7 @@ def dashboard():
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
     
-    return render_template('dashboard.html')
+    return render_template('dashboard.html',data=str(dt))
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
