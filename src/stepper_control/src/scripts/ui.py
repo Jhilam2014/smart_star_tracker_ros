@@ -31,7 +31,7 @@ def run():
     return jsonify(isError= False,
                     message= "Success",
                     statusCode= 200,
-                    data= data), 200
+                    datab = str(data)), 200
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
