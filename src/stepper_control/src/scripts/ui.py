@@ -19,7 +19,6 @@ def listener():
     rospy.spin()
 
 if __name__ == '__main__':
-    app.run(debug = True)
     app.run(host='0.0.0.0',threaded=True)
     rospy.init_node('ui_control_node', anonymous=True)
     try:
