@@ -33,7 +33,7 @@ def run():
 def dashboard():
     dt = loadPages    
     data = json.dumps(dt, indent=4)
-    return render_template('dashboard.html',data=data)
+    return render_template('dashboard.html',data=data,valueData=dt)
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
