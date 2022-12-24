@@ -23,10 +23,8 @@ def run():
     data = request.data
     data_json = ast.literal_eval(json.loads(data))
     # pub_motor.publish(str(data))
-    # return render_template('dashboard.html',data=data)
+    return render_template('dashboard.html',data=data_json)
    
-    return str(type(data_json))
-
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
     dt = loadPages    
