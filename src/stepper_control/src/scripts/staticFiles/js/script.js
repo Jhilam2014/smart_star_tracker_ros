@@ -33,7 +33,7 @@ $(document).ready(function() {
         var get_data = {
             'dif' : $("#textAreaExample").attr('value'),
             'speed': $("#input-text-speed").val(),
-            'direction': $("#direction").attr('value')
+            'direction': document.getElementById('direction').value
         }
 
         var obj =  JSON.stringify(get_data);
