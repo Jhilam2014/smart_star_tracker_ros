@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 
     $("#run_button").click(function(){
+        console.log($("#textAreaExample").val());
         var txt = JSON.parse($("#textAreaExample").val());
   
         $.post("/run", {suggest: txt}, function(result){
