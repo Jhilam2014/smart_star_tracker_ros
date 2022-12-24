@@ -23,20 +23,19 @@ loadPages = json.loads(jsonString)
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
-    
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
     return loadPages
 
 def listener():
-    app.run(host='0.0.0.0',threaded=True)
     rospy.Subscriber('ui_control_control',String, dashboard)
     rospy.spin()
 
 if __name__ == '__main__':
     
     rospy.init_node('ui_control_node', anonymous=True)
+    app.run(host='0.0.0.0',threaded=True)
     try:
         listener()
     except rospy.ROSInterruptException:
