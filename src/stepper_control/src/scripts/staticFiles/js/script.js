@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 
     $("#run_button").click(function(){
-        var obj =  JSON.parse($("#textAreaExample").val());
+        var obj =  JSON.parse($("#textAreaExample").attr('value'));
 
         console.log("===>",obj);
 
