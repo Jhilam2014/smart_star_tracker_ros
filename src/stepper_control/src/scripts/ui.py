@@ -24,10 +24,11 @@ loadPages = json.loads(jsonString)
 def run():
     data = request.data
     data = json.loads(data)
-    # data["type"] = 'Speed Control 1'
+    data["type"] = 'Speed Control'
     # pub_motor.publish(str(data))
-    return render_template('dashboard.html',data=data)
+    # return render_template('dashboard.html',data=data)
     
+    return data
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
