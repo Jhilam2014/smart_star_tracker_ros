@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     $("#run_button").click(function(){
         var obj =  $("#textAreaExample").val();
-        console.log(obj);
+        console.log("===>",obj);
 
 
         var saveData = $.ajax({
