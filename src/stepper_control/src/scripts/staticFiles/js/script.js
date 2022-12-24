@@ -33,9 +33,8 @@ $(document).ready(function() {
         var saveData = $.ajax({
             type: 'POST',
             url: "/run",
-            contentType: 'application/json;charset=UTF-8',
-            data: {'data' : obj},
-            dataType: "text",
+            contentType: 'application/json;',
+            data: {'data' : String(obj)},
             success: function(resultData) { alert(resultData) }
       });
       saveData.error(function() { alert("Something went wrong"); });
