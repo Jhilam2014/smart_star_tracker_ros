@@ -27,9 +27,17 @@ $(document).ready(function() {
 
     $("#run_button").click(function(){
         var obj =  $("#textAreaExample").val();
-        $.post("/run", {suggest: obj}, function(result){
-          console.log(result);
-        });
+        console.log(obj);
+
+
+        var saveData = $.ajax({
+            type: 'POST',
+            url: "/run",
+            data: obj,
+            dataType: "text",
+            success: function(resultData) { alert(resultData) }
+      });
+      saveData.error(function() { alert("Something went wrong"); });
       });
 
 });
