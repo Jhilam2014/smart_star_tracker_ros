@@ -38,7 +38,7 @@ $(document).ready(function() {
             data: obj,
             success: function(resultData) { 
                 
-                document.getElementById('textAreaExample').textContent = resultData; 
+                document.getElementById('textAreaExample').textContent = resultData['data']; 
             
             }
       });
