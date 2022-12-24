@@ -28,7 +28,10 @@ def run():
     # data["type"] = 'Speed Control'
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
-    return data
+    return jsonify(isError= False,
+                    message= "Success",
+                    statusCode= 200,
+                    data= data), 200
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
