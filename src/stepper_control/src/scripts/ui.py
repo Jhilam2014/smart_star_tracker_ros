@@ -5,7 +5,7 @@ import rospy
 from std_msgs.msg import String
 import sys
 from time import sleep
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 import json
 
 
@@ -26,7 +26,8 @@ def dashboard():
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
-    return str(loadPages)
+    
+    return render_template('dashboard.html')
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
