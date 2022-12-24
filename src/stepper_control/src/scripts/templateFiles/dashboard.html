@@ -27,10 +27,12 @@
    </div>
       
   </div>  
-  <span><p></p></span>
-  <span><strong>  Speed</strong></span>
+  
   <div class="row">
+   
    <div class="col-sm-6 col-lg-4" style="width: 240px;">
+      <span><p></p></span>
+      <span><strong>  Speed</strong></span>
       <div class="input-group" >
          <span class="input-group-btn">
              <button type="button" class="btn btn-danger btn-number"  data-type="minus" >
@@ -45,8 +47,22 @@
          </span>
      </div>
    </div>
-   <div class="col-sm-6 col-lg-4">
-      <button type="button" class="btn btn-primary">Update</button>
+   <div class="col-sm-6 col-lg-4" style="width: 240px;">
+      <span><p></p></span>
+      <span><strong>  Time</strong></span>
+      <div class="input-group" >
+         <span class="input-group-btn">
+             <button type="button" class="btn btn-danger btn-number"  data-type="minus" >
+               <span class="glyphicon glyphicon-minus"></span>
+             </button>
+         </span>
+         <input type="text" id="input-text-time" class="form-control input-number" value="10" min="1" max="100">
+         <span class="input-group-btn">
+             <button type="button" class="btn btn-success btn-number" data-type="plus" >
+                 <span class="glyphicon glyphicon-plus"></span>
+             </button>
+         </span>
+     </div>
    </div>
    
   </div>
