@@ -35,7 +35,7 @@ def listener():
 if __name__ == '__main__':
     
     rospy.init_node('ui_control_node', anonymous=True)
-    app.run(host='0.0.0.0',threaded=True)
+    app.run(host='0.0.0.0',threaded=True,debug=True)
     try:
         listener()
     except rospy.ROSInterruptException:
