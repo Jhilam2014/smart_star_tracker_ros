@@ -7,7 +7,7 @@ import sys
 from time import sleep
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import json
-
+import ast
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
 app = Flask(__name__, template_folder='templateFiles', static_folder='staticFiles')
@@ -21,7 +21,7 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    data_json = json.loads(json.loads(data))
+    data_json = ast.literal_eval(json.loads(data))
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
    
