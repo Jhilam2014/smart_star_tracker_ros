@@ -23,6 +23,7 @@ loadPages = json.loads(jsonString)
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
+    app.run(host='0.0.0.0',threaded=True)
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
@@ -30,7 +31,6 @@ def dashboard():
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
-    app.run(host='0.0.0.0',threaded=True)
     rospy.spin()
 
 if __name__ == '__main__':
