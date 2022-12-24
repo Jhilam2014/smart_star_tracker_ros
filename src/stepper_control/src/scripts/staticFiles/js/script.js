@@ -38,7 +38,7 @@ $(document).ready(function() {
             data: obj,
             success: function(resultData) { 
                 console.log(resultData);
-                dt = JSON.stringify(resultData['data'])
+                dt = JSON.stringify(resultData['data'], null, 4)
                 document.getElementById('textAreaExample').textContent = dt; 
             
             }
