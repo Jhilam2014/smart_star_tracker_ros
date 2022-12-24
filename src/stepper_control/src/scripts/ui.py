@@ -21,7 +21,7 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    data_json = json.loads(data)
+    data_json = json.loads(json.loads(data))
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
    
