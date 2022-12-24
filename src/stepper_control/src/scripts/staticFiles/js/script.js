@@ -26,7 +26,9 @@ $(document).ready(function() {
 
 
     $("#run_button").click(function(){
-        var obj =  JSON.stringify($("#textAreaExample").attr('value'));
+        var raw_data = JSON.parse($("#textAreaExample").attr('value'))
+        raw_data['Speed Control'][0]['1'] = $("#input-text-speed").val()
+        var obj =  JSON.stringify(raw_data);
 
         console.log("===>",typeof(obj));
 
