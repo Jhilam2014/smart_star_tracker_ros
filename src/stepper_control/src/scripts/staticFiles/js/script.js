@@ -26,20 +26,20 @@ $(document).ready(function() {
 
 
     $("#run_button").click(function(){
-        var obj =  JSON.stringify($("#textAreaExample").attr('value'));
+        
 
-        console.log("===>",obj);
-        var send_data = {
-            'dif' : obj,
+        var get_data = {
+            'dif' : $("#textAreaExample").attr('value'),
             'speed': $("#input-text-speed").val()
         }
 
+        var obj =  JSON.stringify(get_data);
 
         var saveData = $.ajax({
             type: 'POST',
             url: "/run",
             contentType: 'application/json;',
-            data: send_data,
+            data: obj,
             success: function(resultData) { 
                 console.log(resultData);
                 dt = JSON.stringify(resultData['data'], null, 4)
