@@ -20,10 +20,12 @@ loadPages = json.loads(jsonString)
 
 @app.route('/run',methods = ['POST'])
 def run():
-    data = request.data
-    # data_json = ast.literal_eval(json.loads(data))
+    data = request.data['data']
+    data_json = ast.literal_eval(json.loads(data))
+    data_adjust = data_json['dif']
+    data_adjust['Speed Control'][0]['1'] = data_json['speed']
     # pub_motor.publish(str(data_json))
-    return jsonify(data = data)
+    return jsonify(data = data_adjust)
    
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
