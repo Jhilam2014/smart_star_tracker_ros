@@ -10,7 +10,7 @@
     text-align: center;
 }
 
-.textArea {
-    min-height: 300px;
+.textarea {
+    min-height: 400px;
     background-color: #f0fff0;
 }
