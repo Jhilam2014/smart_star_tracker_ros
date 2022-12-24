@@ -6,13 +6,24 @@ from std_msgs.msg import String
 import sys
 from time import sleep
 from flask import Flask, redirect, url_for, request
+import json
 
 app = Flask(__name__)
+
+f = open('pages.json','r+')
+jsonData = json.load(f)
+jsonString=json.dumps(jsonData)
+loadPages = json.loads(jsonString)
+
+pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
-    return "welcome"
+    dt = loadPages    
+    dt["type"] = 'Speed Control'
+    pub_motor.publish(str(dt))
+    return loadPages
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
