@@ -16,14 +16,14 @@ $(document).ready(function() {
 
     $("button").click(function(){
         if($(this).attr('data-type') == 'plus'){
-            var val = parseInt($('#input-text-speed').val()) + 10
+            var val = parseInt($('#input-text-'+$(this).attr('type-val')).val()) + 10
             console.log(val);
-            document.getElementById('input-text-speed').value=String(val) ; 
+            document.getElementById('input-text-'+$(this).attr('type-val')).value=String(val) ; 
         }
         if($(this).attr('data-type') == 'minus'){
-            var val = parseInt($('#input-text-speed').val()) - 10
+            var val = parseInt($('#input-text-'+$(this).attr('type-val')).val()) - 10
             console.log(val);
-            document.getElementById('input-text-speed').value=String(val) ; 
+            document.getElementById('input-text-'+$(this).attr('type-val')).value=String(val) ; 
         }
     });
 
