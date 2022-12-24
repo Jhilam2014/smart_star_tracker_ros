@@ -38,7 +38,8 @@ $(document).ready(function() {
             data: obj,
             success: function(resultData) { 
                 console.log(resultData);
-                document.getElementById('textAreaExample').textContent = resultData['data']; 
+                dt = JSON.stringify(resultData['data'])
+                document.getElementById('textAreaExample').textContent = dt; 
             
             }
       });
