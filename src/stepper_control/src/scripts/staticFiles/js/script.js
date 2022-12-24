@@ -35,7 +35,7 @@ $(document).ready(function() {
             type: 'POST',
             url: "/run",
             contentType: 'application/json;',
-            data: {'data' : obj},
+            data: obj,
             success: function(resultData) { console.log(resultData) }
       });
       saveData.error(function() { alert("Something went wrong"); });
