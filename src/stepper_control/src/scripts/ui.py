@@ -12,7 +12,7 @@ import json
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
 app = Flask(__name__)
-
+app.run(host='0.0.0.0',threaded=True)
 f = open('pages.json','r+')
 jsonData = json.load(f)
 jsonString=json.dumps(jsonData)
@@ -23,7 +23,7 @@ loadPages = json.loads(jsonString)
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
-    app.run(host='0.0.0.0',threaded=True)
+    
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
