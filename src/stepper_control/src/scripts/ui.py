@@ -26,8 +26,8 @@ def dashboard():
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
-    
-    return render_template('dashboard.html',data=str(dt))
+    data = json.dumps(dt, indent=4)
+    return render_template('dashboard.html',data=data)
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
