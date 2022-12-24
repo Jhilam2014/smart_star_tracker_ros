@@ -4,10 +4,12 @@ $(document).ready(function() {
     $("#c-button").click(function(){
         $("#clock-img").show();
         $("#anti-clock-img").hide();
+        document.getElementById('direction').value=0
       });
     $("#ac-button").click(function(){
         $("#clock-img").hide();
         $("#anti-clock-img").show();
+        document.getElementById('direction').value=1
       });
 
 
@@ -30,7 +32,8 @@ $(document).ready(function() {
 
         var get_data = {
             'dif' : $("#textAreaExample").attr('value'),
-            'speed': $("#input-text-speed").val()
+            'speed': $("#input-text-speed").val(),
+            'direction': $("#direction").attr('value')
         }
 
         var obj =  JSON.stringify(get_data);

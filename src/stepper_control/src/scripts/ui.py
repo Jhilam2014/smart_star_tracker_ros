@@ -24,6 +24,7 @@ def run():
     data_json = ast.literal_eval(str(json.loads(data)))
     data_adjust = ast.literal_eval(data_json['dif'])
     data_adjust['Speed Control'][0]['1'] = data_json['speed']
+    data_adjust['Speed Control'][0]['2'] = data_json['direction']
     data_adjust['type'] = 'Speed Control'
     # pub_motor.publish(str(data_json))
     return jsonify(data = data_adjust)
