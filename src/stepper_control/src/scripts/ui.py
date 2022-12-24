@@ -23,7 +23,7 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    data["type"] = 'Speed Control'
+    data = json.loads(data)
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
     print(type(data))
