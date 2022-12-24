@@ -8,6 +8,9 @@ from time import sleep
 from flask import Flask, redirect, url_for, request
 import json
 
+
+pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
+
 app = Flask(__name__)
 
 f = open('pages.json','r+')
@@ -15,7 +18,7 @@ jsonData = json.load(f)
 jsonString=json.dumps(jsonData)
 loadPages = json.loads(jsonString)
 
-pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
+
 
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
@@ -27,10 +30,11 @@ def dashboard():
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
+    app.run(host='0.0.0.0',threaded=True)
     rospy.spin()
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',threaded=True)
+    
     rospy.init_node('ui_control_node', anonymous=True)
     try:
         listener()
