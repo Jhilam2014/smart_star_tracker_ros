@@ -12,12 +12,7 @@ app = Flask(__name__)
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
-    if request.method == 'POST':
-       user = request.form['nm']
-       return redirect(url_for('success',name = user))
-    else:
-       user = request.args.get('nm')
-       return redirect(url_for('success',name = user))
+    return "welcome"
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
