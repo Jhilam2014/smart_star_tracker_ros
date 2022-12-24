@@ -27,7 +27,7 @@ $(document).ready(function() {
 
     $("#run_button").click(function(){
         console.log($("#textAreaExample").val());
-        var obj = $.parseJSON( $("#textAreaExample").val() );
+        var obj =  $("#textAreaExample").val();
         alert( obj );
   
         $.post("/run", {suggest: obj}, function(result){
