@@ -21,11 +21,11 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    data = json.loads(data)
+    data_json = json.loads(data)
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
    
-    return str(type(data))
+    return str(type(data_json))
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
