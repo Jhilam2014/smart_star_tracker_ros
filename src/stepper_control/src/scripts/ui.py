@@ -24,6 +24,7 @@ def run():
     data_json = ast.literal_eval(str(json.loads(data)))
     data_adjust = ast.literal_eval(data_json['dif'])
     data_adjust['Speed Control'][0]['1'] = data_json['speed']
+    data_adjust['type'] = 'Speed Control'
     # pub_motor.publish(str(data_json))
     return jsonify(data = data_adjust)
    
@@ -40,8 +41,8 @@ def listener():
 if __name__ == '__main__':
     
     rospy.init_node('ui_control_node', anonymous=True)
-    app.run(host='0.0.0.0',threaded=True,debug=True)
-    # app.run(host='0.0.0.0',threaded=True)
+    # app.run(host='0.0.0.0',threaded=True,debug=True)
+    app.run(host='0.0.0.0',threaded=True)
     try:
         listener()
     except rospy.ROSInterruptException:
