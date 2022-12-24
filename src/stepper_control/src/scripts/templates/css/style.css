@@ -1,0 +1,11 @@
+.button {
+    border: none;
+}
+#clock-img, #anti-clock-img {
+    width: 110px;
+    height: 100px;
+}
+
+#input-text-speed {
+    text-align: center;
+}
