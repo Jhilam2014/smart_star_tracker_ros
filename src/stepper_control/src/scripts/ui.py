@@ -12,7 +12,7 @@ import json
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
 app = Flask(__name__)
-app.run(host='0.0.0.0',threaded=True)
+
 f = open('pages.json','r+')
 jsonData = json.load(f)
 jsonString=json.dumps(jsonData)
@@ -30,6 +30,7 @@ def dashboard():
     return loadPages
 
 def listener():
+    app.run(host='0.0.0.0',threaded=True)
     rospy.Subscriber('ui_control_control',String, dashboard)
     rospy.spin()
 
