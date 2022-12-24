@@ -40,7 +40,7 @@ $(document).ready(function() {
                 console.log(resultData);
                 dt = JSON.stringify(resultData['data'], null, 4)
                 document.getElementById('textAreaExample').textContent = dt; 
-                document.getElementById('textAreaExample').setAttribute('value',resultData['data']); 
+                document.getElementById('textAreaExample').setAttribute('value',JSON.stringify(resultData['data'])); 
             
             }
       });
