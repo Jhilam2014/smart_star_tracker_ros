@@ -9,3 +9,9 @@
 #input-text-speed {
     text-align: center;
 }
+
+.textArea {
+    width: 720px;
+    min-height: 300px;
+    background-color: honeydew;
+}
