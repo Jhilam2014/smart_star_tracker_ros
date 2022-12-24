@@ -5,4 +5,5 @@
     <node pkg="stepper_control" type="motor_control.py" name="stepper_motor_controller" cwd="node"/>
     <node pkg="stepper_control" type="endPointRest.py" name="rosnode_killer" cwd="node"/>
     <node pkg="stepper_control" type="rotaryAngle.py" name="rotary_observer_node" cwd="node"/>
+    <node pkg="stepper_control" type="ui.py" name="ui_control_node" cwd="node"/>
 </launch>
