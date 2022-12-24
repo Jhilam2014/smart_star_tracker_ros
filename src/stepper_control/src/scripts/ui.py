@@ -22,10 +22,10 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    data = json.loads(data)
-    rospy.loginfo(data)
-    data["type"] = 'Speed Control'
-    pub_motor.publish(str(data))
+    # data = json.loads(data)
+    # rospy.loginfo(data)
+    # data["type"] = 'Speed Control'
+    # pub_motor.publish(str(data))
     return render_template('dashboard.html',data=data)
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
