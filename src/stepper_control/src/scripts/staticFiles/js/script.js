@@ -37,7 +37,7 @@ $(document).ready(function() {
             contentType: 'application/json;',
             data: obj,
             success: function(resultData) { 
-                
+                console.log(resultData);
                 document.getElementById('textAreaExample').textContent = resultData['data']; 
             
             }
