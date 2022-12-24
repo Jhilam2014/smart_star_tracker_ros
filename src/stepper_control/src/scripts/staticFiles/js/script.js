@@ -34,6 +34,7 @@ $(document).ready(function() {
         var get_data = {
             'dif' : $("#textAreaExample").attr('value'),
             'speed': $("#input-text-speed").val(),
+            'time': $("#input-text-time").val(),
             'direction': document.getElementById('direction').value
         }
 
