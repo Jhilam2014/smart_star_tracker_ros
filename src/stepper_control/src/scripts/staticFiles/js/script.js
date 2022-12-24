@@ -27,9 +27,10 @@ $(document).ready(function() {
 
     $("#run_button").click(function(){
         console.log($("#textAreaExample").val());
-        var txt = JSON.parse($("#textAreaExample").val());
+        var obj = jQuery.parseJSON( $("#textAreaExample").val() );
+        alert( obj );
   
-        $.post("/run", {suggest: txt}, function(result){
+        $.post("/run", {suggest: obj}, function(result){
           console.log(result);
         });
       });
