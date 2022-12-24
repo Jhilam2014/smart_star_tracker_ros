@@ -7,6 +7,7 @@ import sys
 from time import sleep
 from flask import Flask, redirect, url_for, request, render_template, jsonify
 import json
+import flask
 
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
@@ -19,9 +20,9 @@ jsonString=json.dumps(jsonData)
 loadPages = json.loads(jsonString)
 
 
-@app.route('/run',methods = ['POST','GET'])
+@app.route('/run',methods = ['POST'])
 def run():
-    data = json.loads(request.data)
+    data = request.data
     # data = json.loads(data)
     # rospy.loginfo(data)
     # data["type"] = 'Speed Control'
