@@ -22,8 +22,8 @@ loadPages = json.loads(jsonString)
 def run():
     data = request.data
     data_json = ast.literal_eval(json.loads(data))
-    data_json['type'] = "Speed Control -1"
-    # pub_motor.publish(str(data))
+    data_json['type'] = "Speed Control"
+    # pub_motor.publish(str(data_json))
     return jsonify(data = data_json)
    
 @app.route('/dashboard',methods = ['POST', 'GET'])

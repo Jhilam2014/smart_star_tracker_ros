@@ -28,7 +28,7 @@ $(document).ready(function() {
     $("#run_button").click(function(){
         var obj =  JSON.stringify($("#textAreaExample").attr('value'));
 
-        console.log("===>",obj);
+        console.log("===>",typeof(obj));
 
 
         var saveData = $.ajax({
