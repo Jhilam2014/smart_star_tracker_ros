@@ -22,6 +22,7 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
+    print(data)
     print(type(data))
     data["type"] = 'Speed Control'
     pub_motor.publish(str(data))
@@ -31,7 +32,7 @@ def run():
 def dashboard():
     dt = loadPages    
     data = json.dumps(dt, indent=4)
-    return render_template('dashboard.html',data=data)
+    return render_template('dashboard.html',data=dt)
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
