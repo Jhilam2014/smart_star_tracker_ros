@@ -22,8 +22,7 @@ loadPages = json.loads(jsonString)
 @app.route('/run',methods = ['POST'])
 def run():
     data = request.data
-    print(data)
-    print(type(data))
+    data = json.loads(data)
     rospy.loginfo(data)
     data["type"] = 'Speed Control'
     pub_motor.publish(str(data))
