@@ -24,6 +24,7 @@ def run():
     data = request.data
     print(data)
     print(type(data))
+    rospy.loginfo(data)
     data["type"] = 'Speed Control'
     pub_motor.publish(str(data))
     return render_template('dashboard.html',data=data)
