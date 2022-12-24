@@ -26,7 +26,7 @@ def dashboard():
     dt = loadPages    
     dt["type"] = 'Speed Control'
     pub_motor.publish(str(dt))
-    return loadPages
+    return str(loadPages)
 
 def listener():
     rospy.Subscriber('ui_control_control',String, dashboard)
