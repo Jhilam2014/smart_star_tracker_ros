@@ -33,7 +33,8 @@ $(document).ready(function() {
         var saveData = $.ajax({
             type: 'POST',
             url: "/run",
-            data: obj,
+            contentType: 'application/json;charset=UTF-8',
+            data: {'data' : obj},
             dataType: "text",
             success: function(resultData) { alert(resultData) }
       });
