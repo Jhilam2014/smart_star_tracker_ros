@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    $("#clock-img").hide();
+    $("#clock-img").show();
     $("#anti-clock-img").hide();
+    document.getElementById('direction').value=0
     $("#c-button").click(function(){
         $("#clock-img").show();
         $("#anti-clock-img").hide();
