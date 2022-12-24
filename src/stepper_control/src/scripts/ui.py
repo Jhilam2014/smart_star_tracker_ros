@@ -28,6 +28,7 @@ def run():
     # data["type"] = 'Speed Control'
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
+    print(str(data))
     return jsonify(isError= False,
                     message= "Success",
                     statusCode= 200,
