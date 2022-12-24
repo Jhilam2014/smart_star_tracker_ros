@@ -24,7 +24,7 @@ def run():
     data_json = ast.literal_eval(json.loads(data))
     data_json['type'] = "Speed Control -1"
     # pub_motor.publish(str(data))
-    return render_template('dashboard.html',data=data_json)
+    return data_json
    
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():

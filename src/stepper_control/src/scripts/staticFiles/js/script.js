@@ -36,7 +36,11 @@ $(document).ready(function() {
             url: "/run",
             contentType: 'application/json;',
             data: obj,
-            success: function(resultData) { console.log(resultData) }
+            success: function(resultData) { 
+                
+                document.getElementById('textAreaExample').textContent = resultData; 
+            
+            }
       });
       saveData.error(function() { alert("Something went wrong"); });
       });
