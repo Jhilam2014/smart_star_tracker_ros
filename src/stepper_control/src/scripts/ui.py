@@ -11,7 +11,7 @@ import json
 
 pub_motor = rospy.Publisher('stepper_motor_controller_info', String, queue_size=1000)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templateFiles', static_folder='staticFiles')
 
 f = open('pages.json','r+')
 jsonData = json.load(f)
@@ -36,7 +36,7 @@ def listener():
 if __name__ == '__main__':
     
     rospy.init_node('ui_control_node', anonymous=True)
-    app.run(host='0.0.0.0',threaded=True)
+    app.run(host='0.0.0.0',threaded=True,debug=True)
     try:
         listener()
     except rospy.ROSInterruptException:
