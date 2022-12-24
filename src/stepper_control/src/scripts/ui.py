@@ -25,7 +25,7 @@ def run():
     # pub_motor.publish(str(data))
     # return render_template('dashboard.html',data=data)
    
-    return type(data)
+    return str(type(data))
 
 @app.route('/dashboard',methods = ['POST', 'GET'])
 def dashboard():
