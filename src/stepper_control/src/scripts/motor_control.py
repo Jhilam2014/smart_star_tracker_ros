@@ -32,6 +32,7 @@ class CircuitControl:
         mymotortest = RpiMotorLib.A4988Nema(direction, step,(-1,-1,-1), "A4988")
         GPIO.output(EN_pin,GPIO.LOW) 
         pub_stepperStatus.publish(str({"status":"active"}))
+        rospy.loginfo(str(spd))
         mymotortest.motor_go(dirc, # True=Clockwise, False=Counter-Clockwise
                         "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
                         int(spd), # number of steps
