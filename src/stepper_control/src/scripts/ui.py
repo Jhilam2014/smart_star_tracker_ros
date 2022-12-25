@@ -27,7 +27,7 @@ def run():
     data_adjust['Speed Control'][0]['2'] = data_json['direction']
     data_adjust['Speed Control'][0]['3'] = data_json['time']
     data_adjust['type'] = 'Speed Control'
-    # pub_motor.publish(str(data_json))
+    pub_motor.publish(str(data_adjust))
     return jsonify(data = data_adjust)
    
 @app.route('/dashboard',methods = ['POST', 'GET'])
