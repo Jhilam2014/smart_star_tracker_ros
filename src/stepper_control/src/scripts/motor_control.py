@@ -31,7 +31,7 @@ class CircuitControl:
         
         mymotortest = RpiMotorLib.A4988Nema(direction, step,(-1,-1,-1), "A4988")
         GPIO.output(EN_pin,GPIO.LOW) 
-        pub_stepperStatus.publish(str({"status":"active"}))
+        pub_stepperStatus.publish(str({"status":"active"+str(spd)+str(dirc)+str(tm)}))
         rospy.loginfo(str(spd))
         mymotortest.motor_go(dirc, # True=Clockwise, False=Counter-Clockwise
                         "Full" , # Step type (Full,Half,1/4,1/8,1/16,1/32)
@@ -39,7 +39,7 @@ class CircuitControl:
                         float(tm), # step delay [sec]
                         False, # True = print verbose output 
                         .0) # initial delay [sec]
-        pub_stepperStatus.publish(str({"status":"idle"}))
+        pub_stepperStatus.publish(str({"status":"idle"+str(spd)}))
 
 initMotor = CircuitControl()
 
